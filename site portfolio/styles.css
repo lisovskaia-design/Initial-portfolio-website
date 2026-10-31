@@ -1,0 +1,10 @@
+@font-face{font-family:'Arbutus Slab';src:url('assets/arbutus-slab.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#fff;color:#000}
+body{-webkit-font-smoothing:antialiased}
+.hero{position:relative;width:100%;min-height:100vh;min-height:100svh;aspect-ratio:1440 / 1024;overflow:hidden;isolation:isolate}
+.sculpture{position:absolute;right:6.944444vw;bottom:12.890625%;width:41.319444vw;height:40.625vw;background:url('assets/sculpture.png') -0.398% 57.496% / 437.815% no-repeat;z-index:-1}
+h1,p{position:absolute;left:6.944444%;width:86.111111%;margin:0;text-align:center;font-weight:400}
+h1{top:42.1875%;font-family:'Arbutus Slab',Georgia,serif;font-size:8.888889vw;letter-spacing:-.05em;line-height:1}
+p{top:56.25%;font-family:Helvetica,Arial,sans-serif;font-size:max(16px,1.666667vw);letter-spacing:-.02em;line-height:1}
+@media(max-width:600px){.hero{min-height:640px;height:100svh}h1{top:26%;left:5%;width:90%;font-size:13vw}p{top:39%;left:8%;width:84%;font-size:5.2vw;line-height:1.2}.sculpture{width:78vw;height:77vw;right:4vw;bottom:5%}}
