@@ -26,7 +26,7 @@ h2 { font-weight: 400; font-size: 48px; line-height: 58px; }
 .page { margin-inline: auto; overflow-wrap: anywhere; }
 
 .intro {
-  min-height: 976px;
+  min-height: 1032px;
   padding: 226px 32px 70px calc(32px + (100% - 64px) / 4);
 }
 
@@ -80,7 +80,7 @@ h1 {
 .contact-links .cv { margin-left: 48px; }
 .intro-contacts { margin-top: 32px; }
 
-.projects { display: grid; gap: 226px; margin: 156px 32px 0; }
+.projects { display: grid; gap: 226px; margin: 140px 32px 0; }
 
 .project {
   display: grid;
@@ -119,6 +119,7 @@ h1 {
   height: 100%;
   overflow: hidden;
   border-radius: 24px;
+  box-shadow: 0 16px 44px -20px #00000066;
   background: #3c3c3c;
 }
 
@@ -133,9 +134,7 @@ h1 {
 .image-system .image-layer { background-image: url("assets/design-system.png"); }
 
 .image-reword .image-layer {
-  top: -1.327433628%;
-  bottom: auto;
-  height: 194.690265487%;
+  inset: -1.327% 0 -93.363%;
   background-image: url("assets/reword.png");
 }
 
