@@ -151,7 +151,7 @@ h1 {
   min-height: 226px;
   margin-top: 226px;
   padding: 32px;
-  background-image: linear-gradient(180deg in oklab, #222222 0.01%, 22.05%, #2d2d2d 32.41%, 92.07%, #222222 99.99%);
+  background-image: linear-gradient(180deg in oklab, #222222 0.01%, 22.05%, #2F3033 32.41%, 92.07%, #222222 99.99%);
   line-height: 32px;
 }
 
