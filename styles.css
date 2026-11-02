@@ -156,6 +156,7 @@ h1 {
 }
 
 .footer p { max-width: 656px; }
+.footer-name-break { display: none; }
 
 @media (max-width: 1023px) {
   .greeting-break { display: none; }
@@ -168,14 +169,28 @@ h1 {
 }
 
 @media (max-width: 767px) {
-  .intro { padding: 64px 16px 0; }
-  .greeting { flex-wrap: wrap; }
-  .greeting-text { flex-basis: 210px; }
-  h1 { margin-top: 56px; font-size: 32px; line-height: 40px; }
-  h2 { font-size: 32px; line-height: 40px; }
-  .contact-links { row-gap: 8px; }
-  .projects { gap: 80px; margin: 80px 16px 0; }
-  .footer { margin-top: 80px; padding: 32px 16px; }
+  .page { --mobile-cloud-height: clamp(200px, calc(50vw + 12.5px), 400px); font-size: 14px; line-height: 20px; }
+  .intro { padding: var(--mobile-cloud-height) 32px 64px; }
+  .greeting { align-items: flex-start; gap: 16px; }
+  .portrait { flex-basis: 78px; width: 78px; height: 78px; }
+  .greeting-text { line-height: 20px; }
+  h1 { margin-top: 64px; font-size: 28px; font-weight: 600; line-height: 34px; }
+  h2 { font-size: 28px; line-height: 34px; }
+  .intro-description { margin-top: 8px; line-height: 20px; }
+  .intro-contacts { margin-top: 40px; }
+  .contact-links { gap: 8px 24px; font-size: 16px; line-height: 24px; }
+  .contact-links .contact-button:nth-child(n) { width: auto; padding-block: 12px; }
+  .projects { gap: 128px; margin: 64px 32px 0; }
+  .project, .project-content { gap: 24px; }
+  .project-metrics { line-height: 20px; }
+  .project-tags { font-size: 14px; line-height: 16px; }
+  .project-tags li { flex-shrink: 0; max-width: 100%; }
+  .project[aria-labelledby="tracking-title"] .project-description { gap: 8px; }
+  .project[aria-labelledby="tracking-title"] .project-body { gap: 16px; }
+  .project[aria-labelledby="hse-title"] .project-tags li:last-child { flex-basis: 100%; }
+  .footer { align-content: start; gap: 16px; margin-top: 126px; padding: 32px; line-height: 20px; }
+  .footer-name-separator { display: none; }
+  .footer-name-break { display: inline; }
 }
 
 .contact-button {
@@ -227,6 +242,13 @@ a.project-image { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 
+.card-tooltip[data-pointer="touch"] {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Ambient layer stays inside the first-slide cloud frame. */
 .intro {
   position: relative;
@@ -243,4 +265,10 @@ a.project-image { color: inherit; text-decoration: none; }
   height: 100%;
   border-radius: inherit;
   pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .cloud-canvas {
+    mask-image: linear-gradient(#000 70%, transparent);
+  }
 }

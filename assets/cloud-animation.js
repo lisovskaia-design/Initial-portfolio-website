@@ -25,15 +25,16 @@
   });
   const palette = { cool: [184, 200, 255] };
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const desktopPointer = matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
+  const mobileLayout = matchMedia('(max-width: 767px)');
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const rest = { x: 0.18, y: 0.56 };
+  const restX = () => rest.x + (mobileLayout.matches ? 0.35 : 0);
   const particles = [];
   let w = 1;
   let h = 1;
-  let aimX = rest.x;
+  let aimX = restX();
   let aimY = rest.y;
-  let prevX = rest.x;
+  let prevX = restX();
   let prevY = rest.y;
   let phase = 0;
   let lastFrame = 0;
@@ -59,7 +60,7 @@
   }
 
   function currentReduced() {
-    return config.reduce || reducedMotion.matches || !desktopPointer.matches;
+    return config.reduce || reducedMotion.matches;
   }
   function visible() {
     return pageActive && inView && !document.hidden;
@@ -94,7 +95,7 @@
     if (!visible()) return;
     const reduced = currentReduced();
     if (reduced) {
-      aimX = prevX = rest.x;
+      aimX = prevX = restX();
       aimY = prevY = rest.y;
       phase = 0;
     }
@@ -103,8 +104,8 @@
   }
   function resize() {
     // ResizeObserver also catches font loads and changes in the frame's height.
-    w = Math.max(1, scene.clientWidth);
-    h = Math.max(1, scene.clientHeight);
+    w = Math.max(1, canvas.clientWidth);
+    h = Math.max(1, canvas.clientHeight);
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
@@ -112,14 +113,21 @@
     sync();
   }
   function resetPointer() {
-    aimX = rest.x;
+    aimX = restX();
     aimY = rest.y;
   }
-  scene.addEventListener('pointermove', event => {
-    if (event.pointerType === 'touch' || currentReduced() || !visible()) return;
-    const box = scene.getBoundingClientRect();
+  function followPointer(event) {
+    if (currentReduced() || !visible()) return;
+    const box = canvas.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right ||
+        event.clientY < box.top || event.clientY > box.bottom) return;
     aimX = clamp((event.clientX - box.left) / box.width, 0, 1);
     aimY = clamp((event.clientY - box.top) / box.height, 0, 1);
+  }
+  scene.addEventListener('pointerdown', followPointer, { passive: true });
+  scene.addEventListener('pointermove', followPointer, { passive: true });
+  scene.addEventListener('pointerup', event => {
+    if (event.pointerType === 'touch') resetPointer();
   }, { passive: true });
   scene.addEventListener('pointerleave', resetPointer, { passive: true });
   scene.addEventListener('pointercancel', resetPointer, { passive: true });
@@ -129,7 +137,11 @@
     sync();
   });
   reducedMotion.addEventListener('change', sync);
-  desktopPointer.addEventListener('change', sync);
+  mobileLayout.addEventListener('change', () => {
+    aimX = prevX = restX();
+    aimY = prevY = rest.y;
+    resize();
+  });
   window.addEventListener('pagehide', () => { pageActive = false; stop(); });
   window.addEventListener('pageshow', () => { pageActive = true; resize(); });
 
@@ -164,7 +176,8 @@
       ctx.fill();
     }
 
-    radial(w * 0.14, h * 0.53, Math.min(w * 0.31, 390), softGlow * 0.27);
+    const mobileOffset = mobileLayout.matches ? 0.35 : 0;
+    radial(w * (0.14 + mobileOffset), h * 0.53, Math.min(w * 0.31, 390), softGlow * 0.27);
     radial(px, py, config.radius * (w / 1070) ** 0.25, softGlow * 0.57);
     radial(px + config.radius * 0.16, py + config.radius * 0.12,
       config.radius * 0.68 * (w / 1070) ** 0.25, softGlow * 0.12);
@@ -174,7 +187,7 @@
       const depth = 0.4 + p.z * 0.8;
       const dx = reduced ? 0 : Math.sin(phase * 0.24 + p.phase) * 0.0045 * depth;
       const dy = reduced ? 0 : Math.cos(phase * 0.19 + p.phase) * 0.007 * depth;
-      const parallaxX = reduced ? 0 : (prevX - 0.18) * (0.005 + 0.008 * p.z);
+      const parallaxX = reduced ? 0 : (prevX - restX()) * (0.005 + 0.008 * p.z);
       const parallaxY = reduced ? 0 : (prevY - 0.56) * (0.005 + 0.007 * p.z);
       const nx = 0.145 + (p.x - 0.145) * spread + dx + parallaxX;
       const ny = 0.55 + (p.y - 0.55) * Math.min(1.35, 0.73 + spread * 0.28) + dy + parallaxY;
