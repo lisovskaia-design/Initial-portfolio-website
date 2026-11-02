@@ -1,19 +1,102 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hello World! My portfolio will be here soon!">
-  <meta name="theme-color" content="#ffffff">
-  <title>Hello World! — Portfolio</title>
-  <link rel="preload" href="assets/arbutus-slab.ttf" as="font" type="font/ttf" crossorigin>
+  <meta name="description" content="Анастасия Лисовская — Senior Product Designer. Делаю сложные продукты понятными, а&nbsp;дизайн масштабируемым.">
+  <meta name="theme-color" content="#222222">
+  <title>Анастасия Лисовская — Senior Product Designer</title>
+  <link rel="preload" href="assets/noto-sans.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="hero">
-    <div class="sculpture" aria-hidden="true"></div>
-    <h1>Hello World!</h1>
-    <p>My portfolio will be here soon!</p>
-  </main>
+  <div class="page">
+    <main>
+      <section class="intro" id="cloud" aria-labelledby="intro-title">
+        <canvas class="cloud-canvas" id="cloud-canvas" aria-hidden="true"></canvas>
+        <div class="greeting">
+          <div class="portrait" role="img" aria-label="Анастасия Лисовская"></div>
+          <div class="greeting-text">
+            <p>Привет!</p>
+            <p>Меня зовут Анастасия, я&nbsp;сеньор продуктовый дизайнер <br class="greeting-break">с&nbsp;опытом 10+&nbsp;лет в&nbsp;B2C, B2B, B2G и&nbsp;SaaS</p>
+          </div>
+        </div>
+        <h1 id="intro-title">Делаю сложные продукты понятными, а&nbsp;дизайн масштабируемым</h1>
+        <p class="intro-description">Проектировала продукты в&nbsp;самых разных предметных областях: от&nbsp;EdTech, MedTech и&nbsp;FinTech до&nbsp;LegalTech, систем безопасности, корпоративного ПО и&nbsp;морского судоходства</p>
+        <div class="contact-links intro-contacts">
+          <a class="contact-button" href="https://www.linkedin.com/in/anastasiia-lisovskaia-design/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="contact-button" href="https://t.me/stasy721" target="_blank" rel="noopener noreferrer">Telegram</a><a class="contact-button" href="mailto:anastasiia.lisovskaia.design@gmail.com" target="_blank" rel="noopener noreferrer">Email</a><button class="contact-button cv" type="button" aria-disabled="true">Скачать CV</button>
+        </div>
+      </section>
+
+      <div class="projects">
+        <article class="project" aria-labelledby="system-title">
+          <div class="project-content">
+            <div class="project-body">
+              <div class="project-description">
+                <h2 id="system-title">Дизайн-система для&nbsp;команды 200+&nbsp;человек</h2>
+                <p>Создали дизайн-систему с&nbsp;нуля для&nbsp;продукта-флагмана компании МойОфис, ускорив time-to-market на&nbsp;30&nbsp;%</p>
+              </div>
+              <p class="project-metrics">1M+ MAU</p>
+            </div>
+            <ul class="project-tags"><li>Тимлид дизайн-системы</li><li>Защита бюджета перед CTO</li><li>Roadmapping</li><li>Стратегическое планирование</li><li>Играющий тренер</li><li>B2B</li><li>B2C</li><li>B2G</li><li>Desktop</li><li>Windows</li><li>Linux</li><li>macOS</li></ul>
+          </div>
+          <a class="project-image image-system" id="cardDS" href="https://anastasiia-lisovskaia-design.notion.site/200-Time-to-market-30-3a8b2e41e605806e9840cd276e166ae3" target="_blank" rel="noopener noreferrer" aria-label="Дизайн-система МойОфис" data-notion-tooltip><div class="image-layer"></div></a>
+        </article>
+
+        <article class="project" aria-labelledby="tracking-title">
+          <div class="project-content">
+            <div class="project-body">
+              <div class="project-description">
+                <h2 id="tracking-title">Отслеживание изменений в&nbsp;таблицах</h2>
+                <p>Выпустили MVP в&nbsp;срок, пофиксив UX-пробелы конкурентов</p>
+              </div>
+              <p class="project-metrics">1M+ MAU</p>
+            </div>
+            <ul class="project-tags"><li>Продуктовый дизайн</li><li>UX</li><li>Desktop</li><li>Web</li><li>Mobile</li><li>B2B</li><li>B2C</li><li>B2G</li></ul>
+          </div>
+          <a class="project-image image-tracking" id="cardTable" href="https://anastasiia-lisovskaia-design.notion.site/MVP-UX-3e8b2e41e60580f89541f365554902d6" target="_blank" rel="noopener noreferrer" aria-label="Отслеживание изменений в&nbsp;таблице документа" data-notion-tooltip><div class="image-layer"></div></a>
+        </article>
+
+        <article class="project" aria-labelledby="reword-title">
+          <div class="project-content">
+            <div class="project-body">
+              <div class="project-description">
+                <h2 id="reword-title">reword</h2>
+                <p>EdTech пет-проект изучения иностранных слов с&nbsp;миллионами скачиваний и&nbsp;оценками в&nbsp;сторах 4,7+</p>
+                <p>Используем механику свайпа карточек и&nbsp;алгоритм интервального повторения слов для&nbsp;запоминания.</p>
+              </div>
+              <ul class="project-metrics"><li>13K+ DAU</li><li>110K+ MAU</li><li>2,7&nbsp;млн.&nbsp;скачиваний</li></ul>
+            </div>
+            <ul class="project-tags"><li>Продуктовый дизайн</li><li>UX</li><li>UI</li><li>iOS</li><li>Android</li><li>B2C</li></ul>
+          </div>
+          <a class="project-image image-reword" id="cardReword" href="https://reword.app/ru/en" target="_blank" rel="noopener noreferrer" aria-label="Приложение reword для&nbsp;изучения иностранных слов"><div class="image-layer"></div></a>
+        </article>
+
+        <article class="project" aria-labelledby="hse-title">
+          <div class="project-content">
+            <div class="project-body">
+              <div class="project-description">
+                <h2 id="hse-title">Лектор-эксперт в&nbsp;ВШЭ</h2>
+                <p>Единолично увеличила посещаемость лекций на&nbsp;курсе по&nbsp;дизайну интерфейсов в&nbsp;2&nbsp;раза</p>
+              </div>
+            </div>
+            <ul class="project-tags"><li>Продуктовый дизайн</li><li>UX</li><li>UI</li><li>Преподавание, менторство и&nbsp;развитие дизайнеров</li></ul>
+          </div>
+          <div class="project-image image-hse" id="cardHSE" role="img" aria-label="Лекция по&nbsp;дизайну интерфейсов в&nbsp;ВШЭ"><div class="image-layer"></div></div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Анастасия Лисовская, сеньор продуктовый дизайнер<br>10+&nbsp;лет в&nbsp;B2C, B2B, B2G и&nbsp;SaaS</p>
+      <div class="contact-links">
+        <a class="contact-button" href="https://www.linkedin.com/in/anastasiia-lisovskaia-design/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="contact-button" href="https://t.me/stasy721" target="_blank" rel="noopener noreferrer">Telegram</a><a class="contact-button" href="mailto:anastasiia.lisovskaia.design@gmail.com" target="_blank" rel="noopener noreferrer">Email</a><button class="contact-button cv" type="button" aria-disabled="true">Скачать CV</button>
+      </div>
+    </footer>
+  </div>
+  <div class="card-tooltip" id="notion-tooltip" role="tooltip" hidden>Читать в&nbsp;Notion</div>
+  <script src="assets/vanilla-tilt.min.js" defer></script>
+  <script src="assets/interactions.js" defer></script>
+  <script src="assets/cloud-animation.js" defer></script>
 </body>
 </html>
