@@ -133,6 +133,7 @@ h1 {
 
 .image-reword .image-layer {
   inset: -1.327% 0 -93.363%;
+  background-position: 50% 0;
   background-image: url("assets/reword.png");
 }
 
