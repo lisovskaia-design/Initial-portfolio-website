@@ -41,6 +41,9 @@
   let frame = null;
   let inView = false;
   let pageActive = true;
+  let pointerPosition = null;
+  let touchId = null;
+  let touchFallback = false;
 
   // Stable distribution: resizing and changing motion preferences never reshuffle it.
   let seed = 721;
@@ -71,22 +74,26 @@
     lastFrame = 0;
   }
   function schedule() {
-    if (visible() && !currentReduced() && frame === null) {
+    if (visible() && (!currentReduced() || pointerSettling()) && frame === null) {
       frame = requestAnimationFrame(tick);
     }
   }
+  function pointerSettling() {
+    return Math.hypot((aimX - prevX) * w, (aimY - prevY) * h) > 0.1;
+  }
   function tick(now) {
     frame = null;
-    if (!visible() || currentReduced()) return;
+    const reduced = currentReduced();
+    if (!visible() || (reduced && !pointerSettling())) return;
     // Match the lab's ~30 fps, without a background animation loop when paused.
     if (!lastFrame || now - lastFrame >= 1000 / 30) {
       const dt = lastFrame ? Math.min(0.05, (now - lastFrame) / 1000) : 1 / 30;
       lastFrame = now;
-      phase += dt * (0.15 + config.drift * 0.025);
+      if (!reduced) phase += dt * (0.15 + config.drift * 0.025);
       const easing = 1 - Math.pow(1 - (0.02 + config.follow * 0.00135) * 2, dt * 30);
       prevX += (aimX - prevX) * easing;
       prevY += (aimY - prevY) * easing;
-      draw(false);
+      draw(reduced);
     }
     schedule();
   }
@@ -95,8 +102,6 @@
     if (!visible()) return;
     const reduced = currentReduced();
     if (reduced) {
-      aimX = prevX = restX();
-      aimY = prevY = rest.y;
       phase = 0;
     }
     draw(reduced);
@@ -110,36 +115,86 @@
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (pointerPosition) {
+      if (!updateAim(pointerPosition)) resetPointer();
+    } else {
+      aimX = restX();
+      aimY = rest.y;
+    }
     sync();
   }
   function resetPointer() {
+    pointerPosition = null;
     aimX = restX();
     aimY = rest.y;
+    schedule();
+  }
+  function updateAim(point) {
+    const box = scene.getBoundingClientRect();
+    if (!box.width || !box.height || point.clientX < box.left || point.clientX > box.right ||
+        point.clientY < box.top || point.clientY > box.bottom) return false;
+    aimX = clamp((point.clientX - box.left) / box.width, 0, 1);
+    aimY = clamp((point.clientY - box.top) / box.height, 0, 1);
+    return true;
+  }
+  function followPoint(point) {
+    if (!updateAim(point)) {
+      resetPointer();
+      return;
+    }
+    pointerPosition = { clientX: point.clientX, clientY: point.clientY };
+    schedule();
   }
   function followPointer(event) {
-    if (currentReduced() || !visible()) return;
-    const box = canvas.getBoundingClientRect();
-    if (event.clientX < box.left || event.clientX > box.right ||
-        event.clientY < box.top || event.clientY > box.bottom) return;
-    aimX = clamp((event.clientX - box.left) / box.width, 0, 1);
-    aimY = clamp((event.clientY - box.top) / box.height, 0, 1);
+    if (event.pointerType === 'touch' ? !touchFallback : touchId === null) followPoint(event);
   }
   scene.addEventListener('pointerdown', followPointer, { passive: true });
   scene.addEventListener('pointermove', followPointer, { passive: true });
-  scene.addEventListener('pointerup', event => {
-    if (event.pointerType === 'touch') resetPointer();
+  const endHover = event => {
+    if (event.pointerType !== 'touch' && touchId === null) resetPointer();
+  };
+  scene.addEventListener('pointerleave', endHover, { passive: true });
+  scene.addEventListener('pointercancel', event => {
+    // Native scrolling ends Pointer Events; continue with passive Touch Events.
+    if (event.pointerType === 'touch') touchFallback = true;
+    else endHover(event);
   }, { passive: true });
-  scene.addEventListener('pointerleave', resetPointer, { passive: true });
-  scene.addEventListener('pointercancel', resetPointer, { passive: true });
-  window.addEventListener('blur', resetPointer);
-  document.addEventListener('visibilitychange', () => {
+  scene.addEventListener('touchstart', event => {
+    if (touchId !== null) return;
+    const touch = event.changedTouches[0];
+    if (!touch) return;
+    touchId = touch.identifier;
+    touchFallback = !window.PointerEvent;
+    if (touchFallback) followPoint(touch);
+  }, { passive: true });
+  scene.addEventListener('touchmove', event => {
+    const touch = Array.from(event.changedTouches).find(touch => touch.identifier === touchId);
+    if (touch && touchFallback) followPoint(touch);
+  }, { passive: true });
+  const endTouch = event => {
+    if (!Array.from(event.changedTouches).some(touch => touch.identifier === touchId)) return;
+    touchId = null;
+    touchFallback = false;
     resetPointer();
+  };
+  scene.addEventListener('touchend', endTouch, { passive: true });
+  scene.addEventListener('touchcancel', endTouch, { passive: true });
+  function cancelInteraction() {
+    touchId = null;
+    touchFallback = false;
+    resetPointer();
+  }
+  window.addEventListener('blur', cancelInteraction);
+  document.addEventListener('visibilitychange', () => {
+    cancelInteraction();
     sync();
   });
   reducedMotion.addEventListener('change', sync);
   mobileLayout.addEventListener('change', () => {
-    aimX = prevX = restX();
-    aimY = prevY = rest.y;
+    if (!pointerPosition) {
+      aimX = prevX = restX();
+      aimY = prevY = rest.y;
+    }
     resize();
   });
   window.addEventListener('pagehide', () => { pageActive = false; stop(); });
@@ -152,6 +207,12 @@
   observer.observe(scene);
   new ResizeObserver(resize).observe(scene);
   window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (pointerPosition) {
+      if (!updateAim(pointerPosition)) resetPointer();
+      schedule();
+    }
+  }, { passive: true });
   resize();
 
   // Rendering equations below are ported from the approved local HTML lab.
