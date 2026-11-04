@@ -3,9 +3,11 @@
 
   const scene = document.getElementById('cloud');
   const canvas = document.getElementById('cloud-canvas');
-  if (!scene || !canvas) return;
+  const glowCanvas = document.getElementById('page-glow');
+  if (!scene || !canvas || !glowCanvas) return;
   const ctx = canvas.getContext('2d', { alpha: true });
-  if (!ctx) return;
+  const glowCtx = glowCanvas.getContext('2d', { alpha: true });
+  if (!ctx || !glowCtx) return;
 
   // Approved hero-animation-lab.html settings. Keep these independent of card effects.
   const config = Object.freeze({
@@ -26,6 +28,8 @@
   const palette = { cool: [184, 200, 255] };
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobileLayout = matchMedia('(max-width: 767px)');
+  const hoverPointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const globalFollow = () => !mobileLayout.matches && hoverPointer.matches;
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const rest = { x: 0.18, y: 0.56 };
   const restX = () => rest.x + (mobileLayout.matches ? 0.35 : 0);
@@ -42,8 +46,13 @@
   let inView = false;
   let pageActive = true;
   let pointerPosition = null;
-  let touchId = null;
-  let touchFallback = false;
+  let glowPointer = null;
+  let glowX = 0;
+  let glowY = 0;
+  let glowAimX = 0;
+  let glowAimY = 0;
+  let glowReady = false;
+  let scrollY = window.scrollY;
 
   // Stable distribution: resizing and changing motion preferences never reshuffle it.
   let seed = 721;
@@ -66,7 +75,7 @@
     return config.reduce || reducedMotion.matches;
   }
   function visible() {
-    return pageActive && inView && !document.hidden;
+    return pageActive && (inView || glowSettling()) && !document.hidden;
   }
   function stop() {
     if (frame !== null) cancelAnimationFrame(frame);
@@ -79,7 +88,10 @@
     }
   }
   function pointerSettling() {
-    return Math.hypot((aimX - prevX) * w, (aimY - prevY) * h) > 0.1;
+    return Math.hypot((aimX - prevX) * w, (aimY - prevY) * h) > 0.1 || glowSettling();
+  }
+  function glowSettling() {
+    return globalFollow() && Math.hypot(glowAimX - glowX, glowAimY - glowY) > 0.1;
   }
   function tick(now) {
     frame = null;
@@ -89,16 +101,20 @@
     if (!lastFrame || now - lastFrame >= 1000 / 30) {
       const dt = lastFrame ? Math.min(0.05, (now - lastFrame) / 1000) : 1 / 30;
       lastFrame = now;
-      if (!reduced) phase += dt * (0.15 + config.drift * 0.025);
+      if (!reduced && inView) phase += dt * (0.15 + config.drift * 0.025);
       const easing = 1 - Math.pow(1 - (0.02 + config.follow * 0.00135) * 2, dt * 30);
       prevX += (aimX - prevX) * easing;
       prevY += (aimY - prevY) * easing;
-      draw(reduced);
+      glowX += (glowAimX - glowX) * easing;
+      glowY += (glowAimY - glowY) * easing;
+      if (inView) draw(reduced);
+      drawGlow();
     }
     schedule();
   }
   function sync() {
     stop();
+    drawGlow();
     if (!visible()) return;
     const reduced = currentReduced();
     if (reduced) {
@@ -115,6 +131,15 @@
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    glowCanvas.width = Math.round(glowCanvas.clientWidth * dpr);
+    glowCanvas.height = Math.round(glowCanvas.clientHeight * dpr);
+    glowCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    updateGlowAim();
+    if (!glowReady || !globalFollow()) {
+      glowX = glowAimX;
+      glowY = glowAimY;
+      glowReady = true;
+    }
     if (pointerPosition) {
       if (!updateAim(pointerPosition)) resetPointer();
     } else {
@@ -146,42 +171,24 @@
     schedule();
   }
   function followPointer(event) {
-    if (event.pointerType === 'touch' ? !touchFallback : touchId === null) followPoint(event);
+    if (event.pointerType === 'touch' || !globalFollow()) return;
+    glowPointer = { clientX: event.clientX, clientY: event.clientY };
+    updateGlowAim();
+    followPoint(event);
   }
-  scene.addEventListener('pointerdown', followPointer, { passive: true });
-  scene.addEventListener('pointermove', followPointer, { passive: true });
-  const endHover = event => {
-    if (event.pointerType !== 'touch' && touchId === null) resetPointer();
-  };
-  scene.addEventListener('pointerleave', endHover, { passive: true });
-  scene.addEventListener('pointercancel', event => {
-    // Native scrolling ends Pointer Events; continue with passive Touch Events.
-    if (event.pointerType === 'touch') touchFallback = true;
-    else endHover(event);
+  window.addEventListener('pointermove', followPointer, { passive: true });
+  document.documentElement.addEventListener('pointerleave', cancelInteraction, { passive: true });
+  window.addEventListener('pointercancel', event => {
+    if (event.pointerType !== 'touch') cancelInteraction();
   }, { passive: true });
-  scene.addEventListener('touchstart', event => {
-    if (touchId !== null) return;
-    const touch = event.changedTouches[0];
-    if (!touch) return;
-    touchId = touch.identifier;
-    touchFallback = !window.PointerEvent;
-    if (touchFallback) followPoint(touch);
-  }, { passive: true });
-  scene.addEventListener('touchmove', event => {
-    const touch = Array.from(event.changedTouches).find(touch => touch.identifier === touchId);
-    if (touch && touchFallback) followPoint(touch);
-  }, { passive: true });
-  const endTouch = event => {
-    if (!Array.from(event.changedTouches).some(touch => touch.identifier === touchId)) return;
-    touchId = null;
-    touchFallback = false;
-    resetPointer();
-  };
-  scene.addEventListener('touchend', endTouch, { passive: true });
-  scene.addEventListener('touchcancel', endTouch, { passive: true });
+  function updateGlowAim() {
+    const box = scene.getBoundingClientRect();
+    glowAimX = glowPointer ? glowPointer.clientX : box.left + restX() * w;
+    glowAimY = glowPointer ? glowPointer.clientY : box.top + rest.y * h;
+  }
   function cancelInteraction() {
-    touchId = null;
-    touchFallback = false;
+    glowPointer = null;
+    updateGlowAim();
     resetPointer();
   }
   window.addEventListener('blur', cancelInteraction);
@@ -190,13 +197,15 @@
     sync();
   });
   reducedMotion.addEventListener('change', sync);
-  mobileLayout.addEventListener('change', () => {
-    if (!pointerPosition) {
-      aimX = prevX = restX();
-      aimY = prevY = rest.y;
-    }
+  function changeInput() {
+    cancelInteraction();
+    aimX = prevX = restX();
+    aimY = prevY = rest.y;
+    glowReady = false;
     resize();
-  });
+  }
+  mobileLayout.addEventListener('change', changeInput);
+  hoverPointer.addEventListener('change', changeInput);
   window.addEventListener('pagehide', () => { pageActive = false; stop(); });
   window.addEventListener('pageshow', () => { pageActive = true; resize(); });
 
@@ -208,10 +217,14 @@
   new ResizeObserver(resize).observe(scene);
   window.addEventListener('resize', resize, { passive: true });
   window.addEventListener('scroll', () => {
+    if (!glowPointer) glowY -= window.scrollY - scrollY;
+    scrollY = window.scrollY;
+    updateGlowAim();
     if (pointerPosition) {
       if (!updateAim(pointerPosition)) resetPointer();
       schedule();
     }
+    drawGlow();
   }, { passive: true });
   resize();
 
@@ -224,24 +237,9 @@
     const px = prevX * w;
     const py = prevY * h;
 
-    function radial(x, y, radius, opacity) {
-      if (opacity <= 0.001) return;
-      const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-      gradient.addColorStop(0, `rgba(${rgb},${opacity})`);
-      gradient.addColorStop(0.22, `rgba(${rgb},${opacity * 0.54})`);
-      gradient.addColorStop(0.55, `rgba(${rgb},${opacity * 0.16})`);
-      gradient.addColorStop(1, `rgba(${rgb},0)`);
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
     const mobileOffset = mobileLayout.matches ? 0.35 : 0;
     radial(w * (0.14 + mobileOffset), h * 0.53, Math.min(w * 0.31, 390), softGlow * 0.27);
-    radial(px, py, config.radius * (w / 1070) ** 0.25, softGlow * 0.57);
-    radial(px + config.radius * 0.16, py + config.radius * 0.12,
-      config.radius * 0.68 * (w / 1070) ** 0.25, softGlow * 0.12);
+    if (!globalFollow()) drawFollowingGlow(ctx, px, py);
 
     const spread = config.spread / 65;
     const positions = particles.map(p => {
@@ -312,5 +310,30 @@
         ctx.fill();
       }
     });
+  }
+
+  // Reuse the original gradients, radius and opacity for the page-wide light.
+  function radial(x, y, radius, opacity, context = ctx) {
+    if (opacity <= 0.001) return;
+    const rgb = palette[config.tone].join(',');
+    const gradient = context.createRadialGradient(x, y, 0, x, y, radius);
+    gradient.addColorStop(0, `rgba(${rgb},${opacity})`);
+    gradient.addColorStop(0.22, `rgba(${rgb},${opacity * 0.54})`);
+    gradient.addColorStop(0.55, `rgba(${rgb},${opacity * 0.16})`);
+    gradient.addColorStop(1, `rgba(${rgb},0)`);
+    context.fillStyle = gradient;
+    context.beginPath();
+    context.arc(x, y, radius, 0, Math.PI * 2);
+    context.fill();
+  }
+  function drawFollowingGlow(context, x, y) {
+    const softGlow = config.glow / 100;
+    radial(x, y, config.radius * (w / 1070) ** 0.25, softGlow * 0.57, context);
+    radial(x + config.radius * 0.16, y + config.radius * 0.12,
+      config.radius * 0.68 * (w / 1070) ** 0.25, softGlow * 0.12, context);
+  }
+  function drawGlow() {
+    glowCtx.clearRect(0, 0, glowCanvas.clientWidth, glowCanvas.clientHeight);
+    if (globalFollow()) drawFollowingGlow(glowCtx, glowX, glowY);
   }
 })();
