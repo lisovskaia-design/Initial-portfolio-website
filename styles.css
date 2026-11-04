@@ -20,6 +20,7 @@ html {
 }
 
 body, h1, h2, p, ul { margin: 0; }
+body { isolation: isolate; }
 ul { padding: 0; list-style: none; }
 h2 { font-weight: 400; font-size: 48px; line-height: 58px; }
 
@@ -88,6 +89,8 @@ h1 {
 }
 
 .project-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -114,17 +117,17 @@ h1 {
 .project-image {
   position: relative;
   align-self: start;
+  z-index: 1;
   width: 100%;
   height: auto;
   aspect-ratio: 688 / 452;
   overflow: hidden;
   border-radius: 24px;
-  box-shadow: 0 16px 44px -20px #00000066;
   background: #3c3c3c;
+  transform-origin: center;
 }
 
-
-.image-layer { position: absolute; inset: 0; background-position: 50%; background-size: cover; }
+.image-layer { position: absolute; inset: 0; background-position: 50%; background-size: cover; filter: brightness(1); }
 
 .image-tracking .image-layer {
   inset: -38.938% -33.736% -6.637% -32.884%;
@@ -159,6 +162,7 @@ h1 {
 }
 
 .footer p { max-width: 656px; }
+.footer > * { position: relative; z-index: 1; }
 .footer-name-break { display: none; }
 
 @media (max-width: 1023px) {
@@ -212,7 +216,6 @@ h1 {
 
 a.contact-button, a.project-image { cursor: pointer; }
 a.project-image { color: inherit; text-decoration: none; }
-.project-image.tilt-enabled { touch-action: none; -webkit-touch-callout: none; }
 .page { overflow-x: clip; }
 .contact-button:active, .contact-button:focus-visible { opacity: 1; }
 .contact-button:focus-visible, a.project-image:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
@@ -221,12 +224,18 @@ a.project-image { color: inherit; text-decoration: none; }
   .contact-button:hover { opacity: 1; }
 }
 
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  .project-image { transition: transform 300ms ease; }
+  .project-image .image-layer { filter: brightness(0.88); transition: filter 300ms ease; }
+  .project-image:hover .image-layer { filter: brightness(1); }
+}
+
 @media (hover: none), (pointer: coarse) {
   .contact-button:active { transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contact-button { transition: none; }
+  .contact-button, .project-image, .project-image .image-layer { transition: none; }
 }
 
 .card-tooltip {
@@ -252,7 +261,16 @@ a.project-image { color: inherit; text-decoration: none; }
   transform: translate(-50%, -50%);
 }
 
-/* Ambient layer stays inside the first-slide cloud frame. */
+/* The existing light sits behind content; only the stars stay in Cloud. */
+.page-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .intro {
   position: relative;
   isolation: isolate;
