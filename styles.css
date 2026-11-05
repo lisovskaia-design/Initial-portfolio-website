@@ -116,10 +116,11 @@ h1 {
 
 .project-image {
   position: relative;
-  align-self: start;
+  align-self: stretch;
+  justify-self: end;
   z-index: 1;
   width: 100%;
-  height: auto;
+  height: 100%;
   aspect-ratio: 688 / 452;
   overflow: hidden;
   border-radius: 24px;
@@ -226,7 +227,7 @@ a.project-image { color: inherit; text-decoration: none; }
 
 @media (min-width: 768px) and (hover: hover) and (pointer: fine) {
   .project-image { transition: transform 300ms ease; }
-  .project-image .image-layer { filter: brightness(0.88); transition: filter 300ms ease; }
+  .project-image .image-layer { filter: brightness(0.78); transition: filter 300ms ease; }
   .project-image:hover .image-layer { filter: brightness(1); }
 }
 
