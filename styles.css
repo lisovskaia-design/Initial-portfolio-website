@@ -138,6 +138,12 @@ h1 {
 
 .image-system .image-layer { background-image: url("assets/design-system.png"); }
 
+.image-fintech { background: #1e1e1e; }
+.image-fintech .image-layer {
+  inset: 5.31% 1.744%;
+  background-image: url("assets/fintech.png");
+}
+
 .image-reword .image-layer {
   inset: -1.327% 0 -93.363%;
   background-position: 50% 0;
@@ -165,6 +171,10 @@ h1 {
 .footer p { max-width: 656px; }
 .footer > * { position: relative; z-index: 1; }
 .footer-name-break { display: none; }
+
+@media (min-width: 1024px) {
+  .footer .contact-links { top: -8px; }
+}
 
 @media (max-width: 1023px) {
   .greeting-break { display: none; }
