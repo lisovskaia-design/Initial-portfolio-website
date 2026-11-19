@@ -1,0 +1,67 @@
+.case-page {
+  --space: clamp(8px, 0.5vw + 6px, 12px);
+  --media-gap: clamp(28px, 3.5vw, 52px);
+  --insight-gap: clamp(44px, 5vw, 76px);
+}
+
+.case-page main {
+  width: min(calc(100% - 64px), 58rem);
+  margin-inline: auto;
+}
+
+.case-page article { max-width: var(--title-width); }
+
+.case-page nav { font-size: 1rem; }
+.case-page nav .contact-links .contact-button {
+  width: auto;
+  white-space: nowrap;
+}
+
+/* Use the site's base type size until .page applies its mobile typography. */
+:where(.case-page .footer) { font-size: 1rem; }
+
+.case-page .case-summary { max-width: 38rem; }
+
+.case-page section {
+  margin-top: calc(var(--space) * 8);
+}
+
+.case-page h2 { margin-bottom: calc(var(--space) * 3); }
+
+.case-page h3 { margin-block: calc(var(--space) * 4) calc(var(--space) * 1.5); }
+
+.case-page h4 { margin-block: calc(var(--space) * 4) calc(var(--space) * 1.5); }
+.case-page blockquote { margin-inline: 0; }
+.case-page .case-aside { margin-block: var(--insight-gap); }
+.case-page blockquote p + p { margin-top: .9em; }
+
+.case-page figure { margin: calc(var(--space) * 4) 0; }
+.case-page .case-documents {
+  display: grid;
+  align-items: start;
+  gap: clamp(20px, 3vw, 48px);
+}
+.case-page .case-documents,
+.case-page .case-pair { margin-block: var(--media-gap); }
+.case-page .case-documents figure,
+.case-page .case-pair blockquote { margin: 0; }
+.case-page .case-pair { row-gap: var(--insight-gap); }
+
+@media (min-width: 768px) {
+  .case-page .case-results { grid-template-columns: 803fr 804fr; }
+}
+
+@media (min-width: 1024px) {
+  .case-page .case-change-preview { width: calc(100% / 1.5); margin-inline: auto; }
+  .case-page .case-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-page .case-drafts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .case-page .case-pair { gap: var(--insight-gap); }
+}
+
+.case-page section > :is(blockquote) + :is(h3, h4) {
+  margin-top: calc(var(--space) * 8);
+}
+
+.case-page :is(.case-aside, .case-pair) + :is(h3, h4) {
+  margin-top: calc(var(--space) * 8);
+}
