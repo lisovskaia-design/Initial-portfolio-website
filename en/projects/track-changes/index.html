@@ -4,11 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="I designed the first version of table change tracking for MyOffice Text, a desktop word processor.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Track Changes — Anastasiia Lisovskaia">
+    <meta property="og:description" content="I designed table change tracking for MyOffice Text so people can suggest edits to a table and accept or reject changes during review.">
+    <meta property="og:url" content="https://lisovskaia-design.pro/en/projects/track-changes/index.html">
+    <meta property="og:image" content="https://lisovskaia-design.pro/assets/og/track-changes.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="A table with tracked edits and the review pane in MyOffice Text.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Track Changes — Anastasiia Lisovskaia">
+    <meta name="twitter:description" content="I designed table change tracking for MyOffice Text so people can suggest edits to a table and accept or reject changes during review.">
+    <meta name="twitter:image" content="https://lisovskaia-design.pro/assets/og/track-changes.jpg">
     <meta name="theme-color" content="#222222">
     <title>Track Changes — Anastasiia Lisovskaia</title>
     <link rel="icon" href="../../../favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="icon" href="../../../favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="preload" href="../../../assets/noto-sans.ttf" as="font" type="font/ttf" crossorigin="">
+    <link rel="preload" href="../../../assets/noto-sans.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../../styles.css">
     <link rel="stylesheet" href="../../../projects/case-common.css">
     <link rel="stylesheet" href="../../../projects/track-changes/case.css">
@@ -30,7 +44,12 @@
           <p class="case-summary">I designed the first version of table change tracking for MyOffice Text, a desktop word processor.</p>
           <p class="case-platforms">0→1 · Desktop editor · B2B · B2C · B2G · Product Design · UX</p>
           <figure>
-            <a href="../../../projects/track-changes/images/cover_vector.png"><img src="../../../projects/track-changes/previews/cover_vector.webp" width="1600" height="900" alt="MyOffice Text showing tracked changes in a table" decoding="async"></a>
+            <a href="../../../projects/track-changes/images/cover_vector.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/cover_vector.webp">
+                <img src="../../../projects/track-changes/images/cover_vector.png" width="1600" height="900" alt="MyOffice Text showing tracked changes in a table" decoding="async">
+              </picture>
+            </a>
             <figcaption>Reviewing changes to a table in MyOffice Text</figcaption>
           </figure>
         </header>
@@ -45,7 +64,12 @@
           </ul>
           <p>I designed change tracking for tables in the desktop word processor. My work ranged from defining the problem and testing user expectations to designing interface states and writing the specification.</p>
           <figure class="case-change-preview">
-            <a href="../../../projects/track-changes/images/4.8.3.png"><img src="../../../projects/track-changes/previews/4.8.3.webp" width="1600" height="855" alt="A proposed table insertion and row deletion in review mode" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/4.8.3.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/4.8.3.webp">
+                <img src="../../../projects/track-changes/images/4.8.3.png" width="1600" height="855" alt="A proposed table insertion and row deletion in review mode" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Preview of suggested changes to a table</figcaption>
           </figure>
         </section>
@@ -57,7 +81,12 @@
           <h3>How people review tables together</h3>
           <p>Co-authors and approvers suggest edits. The document author accepts or rejects them. People can work on a document offline, online or together in real time.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/2.png"><img src="../../../projects/track-changes/previews/2.webp" width="1600" height="1123" alt="A table with edits from several co-authors and messages in the document margin" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/2.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/2.webp">
+                <img src="../../../projects/track-changes/images/2.png" width="1600" height="1123" alt="A table with edits from several co-authors and messages in the document margin" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>One co-author suggests deleting rows. Another suggests inserting a row between them.</figcaption>
           </figure>
           <h3>Where the workflow broke down</h3>
@@ -65,7 +94,12 @@
           <p>It automatically accepted some changes from other editors and lost others.</p>
           <p>People had to compare document versions by hand.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image.png"><img src="../../../projects/track-changes/previews/image.webp" width="1600" height="1127" alt="A Microsoft forum post about table rows shifting during review in Word" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image.webp">
+                <img src="../../../projects/track-changes/images/image.png" width="1600" height="1127" alt="A Microsoft forum post about table rows shifting during review in Word" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>A user describes the problem on a Microsoft forum</figcaption>
           </figure>
         </section>
@@ -84,7 +118,12 @@
           <h2>Design process</h2>
           <h3>How six editors handled table changes</h3>
           <figure>
-            <a href="../../../projects/track-changes/images/Frame_1.png"><img src="../../../projects/track-changes/previews/Frame_1.webp" width="1600" height="1035" alt="Comparison of how six document editors handle tracked changes" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/Frame_1.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/Frame_1.webp">
+                <img src="../../../projects/track-changes/images/Frame_1.png" width="1600" height="1035" alt="Comparison of how six document editors handle tracked changes" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>The outline on the left shows the scope of the competitive analysis.</figcaption>
           </figure>
           <p>I compared Microsoft&nbsp;Word, Word for the web, WPS&nbsp;Office, LibreOffice, Google&nbsp;Docs and R7&nbsp;Office. I tested operations on whole tables, rows and columns, as well as formatting and edits to cell contents.</p>
@@ -94,15 +133,30 @@
           <p>For each new edit, I considered who made it, what kind of edit it was and where it fell relative to an existing change. It could sit inside that change, next to it or partly overlap it. Those conditions determined whether the edits would merge, stay separate or split into several changes.</p>
           <div class="case-documents case-drafts">
             <figure>
-              <a href="../../../projects/track-changes/images/image_11.png"><img src="../../../projects/track-changes/previews/image_11.webp" width="1600" height="900" alt="Working notes on table properties and available operations" decoding="async" loading="lazy"></a>
+              <a href="../../../projects/track-changes/images/image_11.png">
+                <picture>
+                  <source type="image/webp" srcset="../../../projects/track-changes/previews/image_11.webp">
+                  <img src="../../../projects/track-changes/images/image_11.png" width="1600" height="900" alt="Working notes on table properties and available operations" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Before designing the interactions, I listed all the table, cell and text properties a user could change.</figcaption>
             </figure>
             <figure>
-              <a href="../../../projects/track-changes/images/image_12.png"><img src="../../../projects/track-changes/previews/image_12.webp" width="1600" height="900" alt="Selection options for tables, rows, columns and cells" decoding="async" loading="lazy"></a>
+              <a href="../../../projects/track-changes/images/image_12.png">
+                <picture>
+                  <source type="image/webp" srcset="../../../projects/track-changes/previews/image_12.webp">
+                  <img src="../../../projects/track-changes/images/image_12.png" width="1600" height="900" alt="Selection options for tables, rows, columns and cells" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Next I mapped the cell ranges people were likely to select and how the editor would interpret each selection as a cell, a column, a row or the whole table.</figcaption>
             </figure>
             <figure>
-              <a href="../../../projects/track-changes/images/image_13.png"><img src="../../../projects/track-changes/previews/image_13.webp" width="1600" height="900" alt="Rules for overlapping edits from different users" decoding="async" loading="lazy"></a>
+              <a href="../../../projects/track-changes/images/image_13.png">
+                <picture>
+                  <source type="image/webp" srcset="../../../projects/track-changes/previews/image_13.webp">
+                  <img src="../../../projects/track-changes/images/image_13.png" width="1600" height="900" alt="Rules for overlapping edits from different users" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Once I had rules for table operations and for recording suggestions, I worked out how to handle overlapping changes from multiple co-authors.</figcaption>
             </figure>
           </div>
@@ -110,11 +164,21 @@
           <blockquote class="case-aside"><strong>Finding.</strong> Accepting a table deletion also affects the edits inside it. We had to define what would happen to those edits whenever someone acted on the change to the table as a whole.</blockquote>
           <p>Our requirements distinguished between the changes the editor records in the document and the changes it shows to the person reviewing it.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_14.png"><img src="../../../projects/track-changes/previews/image_14.webp" width="1600" height="900" alt="Matrix of edits made in sequence" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_14.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_14.webp">
+                <img src="../../../projects/track-changes/images/image_14.png" width="1600" height="900" alt="Matrix of edits made in sequence" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>The first matrix covers all the ways successive edits can intersect. It accounts for whether the same person or different people made the edits and where each new change falls relative to earlier ones.</figcaption>
           </figure>
           <figure>
-            <a href="../../../projects/track-changes/images/image_15.png"><img src="../../../projects/track-changes/previews/image_15.webp" width="1600" height="900" alt="Matrix for accepting or rejecting changes in sequence" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_15.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_15.webp">
+                <img src="../../../projects/track-changes/images/image_15.png" width="1600" height="900" alt="Matrix for accepting or rejecting changes in sequence" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>The second matrix covers every combination of change types when someone accepts or rejects related edits one after another.</figcaption>
           </figure>
           <h3>Testing user expectations</h3>
@@ -122,7 +186,12 @@
           <h4>The task</h4>
           <p>You have two documents. You’re copying from one and pasting into the other. Each passage contains a change suggested by someone else. What do you think will appear when you paste it into the new document? What would you expect to see?</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_17.png"><img src="../../../projects/track-changes/previews/image_17.webp" width="1600" height="900" alt="Study task showing the source document and the document where participants would paste the selection" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_17.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_17.webp">
+                <img src="../../../projects/track-changes/images/image_17.png" width="1600" height="900" alt="Study task showing the source document and the document where participants would paste the selection" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>The study setup</figcaption>
           </figure>
           <p>Participants looked at both documents and explained what they thought would appear when they pasted the selection. Possibilities included the content alone, the content with its tracked changes, or the result of accepting the change.</p>
@@ -147,34 +216,64 @@
           <h3>Designing the review interface</h3>
           <p>I defined requirements for changes to table and row properties and formatting, operations on whole tables, rows and columns, edits to cell contents, and grouped changes.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_18.png"><img src="../../../projects/track-changes/previews/image_18.webp" width="1600" height="900" alt="Requirements for tracked changes alongside the related development tasks" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_18.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_18.webp">
+                <img src="../../../projects/track-changes/images/image_18.png" width="1600" height="900" alt="Requirements for tracked changes alongside the related development tasks" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>The final MVP specification covered property changes, operations on tables, rows, columns and cells, and grouped changes. It also defined the order of changes in the list of changes, how to accept or reject them, and how to display changes across different parts of a document.</figcaption>
           </figure>
           <p>I designed the markers for insertions, deletions and formatting changes, the hover and selected states, and the messages showing who made each change and when.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_20.png"><img src="../../../projects/track-changes/previews/image_20.webp" width="1600" height="900" alt="Markers for insertions, deletions and formatting changes to tables and rows" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_20.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_20.webp">
+                <img src="../../../projects/track-changes/images/image_20.png" width="1600" height="900" alt="Markers for insertions, deletions and formatting changes to tables and rows" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Design detail showing how insertions, deletions and formatting changes appear individually and together</figcaption>
           </figure>
           <p>I specified the order in the list of changes. Changes to the table appear before changes to its rows, and row changes appear before edits to the content within them.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_19.png"><img src="../../../projects/track-changes/previews/image_19.webp" width="1600" height="900" alt="Specification excerpt showing how to display and order tracked changes" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_19.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_19.webp">
+                <img src="../../../projects/track-changes/images/image_19.png" width="1600" height="900" alt="Specification excerpt showing how to display and order tracked changes" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>An excerpt from the rules for formatting changes and row edits</figcaption>
           </figure>
           <p>When a change spans multiple pages, its message appears once, on the page where the change begins.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_21.png"><img src="../../../projects/track-changes/previews/image_21.webp" width="1600" height="900" alt="A message beside the start of a table change that continues onto the next page" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_21.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_21.webp">
+                <img src="../../../projects/track-changes/images/image_21.png" width="1600" height="900" alt="A message beside the start of a table change that continues onto the next page" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>A single change spanning two pages</figcaption>
           </figure>
           <p>I designed a warning for actions the editor couldn’t track and a confirmation prompt for actions that would discard related edits.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_22.png"><img src="../../../projects/track-changes/previews/image_22.webp" width="1600" height="900" alt="Warning dialog for an action the editor cannot record as a tracked change" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_22.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_22.webp">
+                <img src="../../../projects/track-changes/images/image_22.png" width="1600" height="900" alt="Warning dialog for an action the editor cannot record as a tracked change" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>When the editor can’t track a suggested change, the message explains that the edit will take effect in the table immediately and won’t appear for review.</figcaption>
           </figure>
           <h3>Release scope and next steps</h3>
           <p>The first release supported four structural changes. Users could insert or delete a table and insert or delete a row. We then worked on grouping changes, tracking table property changes and explaining limitations in the interface.</p>
           <p>For later releases, we identified nested tables, merging and splitting cells, clearer messages about edits to objects, and co-author colors that would be easier to tell apart.</p>
           <figure>
-            <a href="../../../projects/track-changes/images/image_23.png"><img src="../../../projects/track-changes/previews/image_23.webp" width="1600" height="900" alt="Phased release plan for reviewing changes to tables" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image_23.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image_23.webp">
+                <img src="../../../projects/track-changes/images/image_23.png" width="1600" height="900" alt="Phased release plan for reviewing changes to tables" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Tasks for later releases of table change tracking</figcaption>
           </figure>
           <blockquote>Show formatting changes to a whole table or part of it.</blockquote>
@@ -195,20 +294,40 @@
           <p>I designed the interface states and worked with the analysts on the rules for displaying, accepting and rejecting changes.</p>
           <div class="case-documents case-results">
             <figure>
-              <a href="../../../projects/track-changes/images/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.png"><img src="../../../projects/track-changes/previews/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.webp" width="852" height="804" alt="Designs for tracking table property changes and operations on tables, rows and columns" decoding="async" loading="lazy"></a>
+              <a href="../../../projects/track-changes/images/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.png">
+                <picture>
+                  <source type="image/webp" srcset="../../../projects/track-changes/previews/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.webp">
+                  <img src="../../../projects/track-changes/images/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.png" width="852" height="804" alt="Designs for tracking table property changes and operations on tables, rows and columns" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Table property changes and operations on tables, rows and columns</figcaption>
             </figure>
             <figure>
-              <a href="../../../projects/track-changes/images/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.png"><img src="../../../projects/track-changes/previews/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.webp" width="852" height="803" alt="Designs for grouped changes, notifications and a change spanning multiple pages" decoding="async" loading="lazy"></a>
+              <a href="../../../projects/track-changes/images/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.png">
+                <picture>
+                  <source type="image/webp" srcset="../../../projects/track-changes/previews/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.webp">
+                  <img src="../../../projects/track-changes/images/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.png" width="852" height="803" alt="Designs for grouped changes, notifications and a change spanning multiple pages" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Grouped changes, notifications and a change spanning multiple pages</figcaption>
             </figure>
           </div>
           <figure>
-            <a href="../../../projects/track-changes/images/image-1.png"><img src="../../../projects/track-changes/previews/image-1.webp" width="1600" height="365" alt="Sequence of interface states for a table with tracked changes" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image-1.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image-1.webp">
+                <img src="../../../projects/track-changes/images/image-1.png" width="1600" height="365" alt="Sequence of interface states for a table with tracked changes" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>How highlighting works in the default, hover and editing states and when other changes are present</figcaption>
           </figure>
           <figure>
-            <a href="../../../projects/track-changes/images/image-2.png"><img src="../../../projects/track-changes/previews/image-2.webp" width="1600" height="774" alt="Display options for changes spanning two document pages" decoding="async" loading="lazy"></a>
+            <a href="../../../projects/track-changes/images/image-2.png">
+              <picture>
+                <source type="image/webp" srcset="../../../projects/track-changes/previews/image-2.webp">
+                <img src="../../../projects/track-changes/images/image-2.png" width="1600" height="774" alt="Display options for changes spanning two document pages" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>How a whole-table change appears alongside a change that spans two pages</figcaption>
           </figure>
         </section>

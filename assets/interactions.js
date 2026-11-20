@@ -1,4 +1,9 @@
 (() => {
+  // Once a cover approaches the viewport, paint it normally to retain subpixel cropping.
+  document.addEventListener('contentvisibilityautostatechange', ({ target, skipped }) => {
+    if (!skipped && target.matches('.project-image')) target.style.contentVisibility = 'visible';
+  }, true);
+
   const tooltip = document.getElementById('notion-tooltip');
   let tooltipCard = null;
   let tooltipTouchId = null;

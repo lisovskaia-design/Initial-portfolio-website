@@ -4,11 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Продуктовая работа над MVP функционалом рецензирования таблиц в текстовом редакторе документов МойОфис">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Отслеживание изменений — Анастасия Лисовская">
+    <meta property="og:description" content="Спроектировала рецензирование таблиц в МойОфис Текст: пользователи могут предлагать правки, принимать их или отклонять.">
+    <meta property="og:url" content="https://lisovskaia-design.pro/projects/track-changes/index.html">
+    <meta property="og:image" content="https://lisovskaia-design.pro/assets/og/track-changes.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Таблица с отмеченными правками и панель рецензирования в редакторе МойОфис Текст.">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Отслеживание изменений — Анастасия Лисовская">
+    <meta name="twitter:description" content="Спроектировала рецензирование таблиц в МойОфис Текст: пользователи могут предлагать правки, принимать их или отклонять.">
+    <meta name="twitter:image" content="https://lisovskaia-design.pro/assets/og/track-changes.jpg">
     <meta name="theme-color" content="#222222">
     <title>Отслеживание изменений — Анастасия Лисовская</title>
     <link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="preload" href="../../assets/noto-sans.ttf" as="font" type="font/ttf" crossorigin="">
+    <link rel="preload" href="../../assets/noto-sans.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../case-common.css">
     <link rel="stylesheet" href="case.css">
@@ -30,7 +44,12 @@
           <p class="case-summary">Продуктовая работа над&nbsp;MVP функционалом рецензирования таблиц в&nbsp;текстовом редакторе документов МойОфис</p>
           <p class="case-platforms">0→1 · Настольный редактор · B2B · B2C · B2G · Product Design · UX</p>
           <figure>
-            <a href="images/cover_vector.png"><img src="previews/cover_vector.webp" width="1600" height="900" alt="Текстовый редактор МойОфис с&nbsp;правками в&nbsp;таблице" decoding="async"></a>
+            <a href="images/cover_vector.png">
+              <picture>
+                <source type="image/webp" srcset="previews/cover_vector.webp">
+                <img src="images/cover_vector.png" width="1600" height="900" alt="Текстовый редактор МойОфис с&nbsp;правками в&nbsp;таблице" decoding="async">
+              </picture>
+            </a>
             <figcaption>Текстовый редактор МойОфис в&nbsp;режиме рецензирования таблицы</figcaption>
           </figure>
         </header>
@@ -45,7 +64,12 @@
           </ul>
           <p>В&nbsp;настольном текстовом редакторе я проектировала отслеживание изменений в&nbsp;таблицах: от&nbsp;анализа задачи и&nbsp;проверки пользовательских ожиданий до&nbsp;интерфейсных состояний и&nbsp;спецификации. </p>
           <figure class="case-change-preview">
-            <a href="images/4.8.3.png"><img src="previews/4.8.3.webp" width="1600" height="855" alt="Добавление таблицы и&nbsp;удаление строки в&nbsp;режиме рецензирования" decoding="async" loading="lazy"></a>
+            <a href="images/4.8.3.png">
+              <picture>
+                <source type="image/webp" srcset="previews/4.8.3.webp">
+                <img src="images/4.8.3.png" width="1600" height="855" alt="Добавление таблицы и&nbsp;удаление строки в&nbsp;режиме рецензирования" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Превью предложенных изменений для&nbsp;таблицы</figcaption>
           </figure>
         </section>
@@ -57,7 +81,12 @@
           <h3>Контекст работы с&nbsp;таблицами </h3>
           <p>Соавторы и&nbsp;согласующие предлагают изменения, автор документа принимает или&nbsp;отклоняет их. Работать с&nbsp;документом можно офлайн, онлайн и&nbsp;одновременно с&nbsp;другими пользователями. </p>
           <figure>
-            <a href="images/2.png"><img src="previews/2.webp" width="1600" height="1123" alt="Правки нескольких соавторов в&nbsp;таблице и&nbsp;сообщения на&nbsp;полях документа" decoding="async" loading="lazy"></a>
+            <a href="images/2.png">
+              <picture>
+                <source type="image/webp" srcset="previews/2.webp">
+                <img src="images/2.png" width="1600" height="1123" alt="Правки нескольких соавторов в&nbsp;таблице и&nbsp;сообщения на&nbsp;полях документа" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Контекст совместной работы над&nbsp;таблицей: один соавтор предлагает удалить строки, другой соавтор предлагает добавить строку между&nbsp;ними</figcaption>
           </figure>
           <h3>Проблемы </h3>
@@ -65,7 +94,12 @@
           <p>Часть правок из&nbsp;сторонних редакторов автоматически принималась или&nbsp;терялась. </p>
           <p>Пользователям приходилось вручную сравнивать версии документа. </p>
           <figure>
-            <a href="images/image.png"><img src="previews/image.webp" width="1600" height="1127" alt="Сообщение на&nbsp;форуме Microsoft о&nbsp;смещении строк таблицы при&nbsp;рецензировании в&nbsp;Word" decoding="async" loading="lazy"></a>
+            <a href="images/image.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image.webp">
+                <img src="images/image.png" width="1600" height="1127" alt="Сообщение на&nbsp;форуме Microsoft о&nbsp;смещении строк таблицы при&nbsp;рецензировании в&nbsp;Word" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Пример проблемы пользователя на&nbsp;форуме Microsoft</figcaption>
           </figure>
         </section>
@@ -84,7 +118,12 @@
           <h2>Процесс решения </h2>
           <h3>Анализ конкурентов </h3>
           <figure>
-            <a href="images/Frame_1.png"><img src="previews/Frame_1.webp" width="1600" height="1035" alt="Сравнение работы с&nbsp;правками в&nbsp;шести редакторах документов" decoding="async" loading="lazy"></a>
+            <a href="images/Frame_1.png">
+              <picture>
+                <source type="image/webp" srcset="previews/Frame_1.webp">
+                <img src="images/Frame_1.png" width="1600" height="1035" alt="Сравнение работы с&nbsp;правками в&nbsp;шести редакторах документов" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Слева видно содержание и&nbsp;объем документа с&nbsp;анализом конкурентов</figcaption>
           </figure>
           <p>Сравнила шесть решений: MS&nbsp;Word, MS&nbsp;Word Online, WPS, LibreOffice, Google&nbsp;Docs и&nbsp;Р7. Проверяла операции с&nbsp;таблицами, строками и&nbsp;столбцами, форматирование и&nbsp;работу с&nbsp;содержимым ячеек.</p>
@@ -94,15 +133,30 @@
           <p>Учитывала автора новой правки, её тип и&nbsp;положение относительно существующей: внутри, рядом или&nbsp;с&nbsp;пересечением. Эти условия определяли, объединяются&nbsp;ли правки, остаются отдельными или&nbsp;разделяются на&nbsp;несколько.</p>
           <div class="case-documents case-drafts">
             <figure>
-              <a href="images/image_11.png"><img src="previews/image_11.webp" width="1600" height="900" alt="Черновик анализа свойств таблицы и&nbsp;доступных операций" decoding="async" loading="lazy"></a>
+              <a href="images/image_11.png">
+                <picture>
+                  <source type="image/webp" srcset="previews/image_11.webp">
+                  <img src="images/image_11.png" width="1600" height="900" alt="Черновик анализа свойств таблицы и&nbsp;доступных операций" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Прежде чем&nbsp;приступить к&nbsp;проектированию, я собрала все возможные свойства таблицы, ячеек и&nbsp;текста, с&nbsp;которыми может работать пользователь</figcaption>
             </figure>
             <figure>
-              <a href="images/image_12.png"><img src="previews/image_12.webp" width="1600" height="900" alt="Варианты выделения таблицы, строк, столбцов и&nbsp;ячеек" decoding="async" loading="lazy"></a>
+              <a href="images/image_12.png">
+                <picture>
+                  <source type="image/webp" srcset="previews/image_12.webp">
+                  <img src="images/image_12.png" width="1600" height="900" alt="Варианты выделения таблицы, строк, столбцов и&nbsp;ячеек" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Затем я собрала вероятные диапазоны работы с&nbsp;ячейками и&nbsp;как&nbsp;система будет понимать, с&nbsp;чем&nbsp;работает пользователь: с&nbsp;ячейкой, столбцом или&nbsp;строкой, а&nbsp;может быть со&nbsp;всей таблицей сразу</figcaption>
             </figure>
             <figure>
-              <a href="images/image_13.png"><img src="previews/image_13.webp" width="1600" height="900" alt="Правила наложения правок разных пользователей" decoding="async" loading="lazy"></a>
+              <a href="images/image_13.png">
+                <picture>
+                  <source type="image/webp" srcset="previews/image_13.webp">
+                  <img src="images/image_13.png" width="1600" height="900" alt="Правила наложения правок разных пользователей" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Помимо выделенных общих правил работы с&nbsp;таблицей и&nbsp;логики по&nbsp;которым предложения других пользователей будут записаны, я продумала логику наложения правок нескольких пользователей друг на&nbsp;друга</figcaption>
             </figure>
           </div>
@@ -110,11 +164,21 @@
           <blockquote class="case-aside"><strong>Инсайт.</strong> Решения для&nbsp;отдельных операций недостаточно. Принятие удаления таблицы затрагивает и&nbsp;изменения внутри неё, поэтому последствия связанных правок нужно определять вместе.</blockquote>
           <p>В&nbsp;требованиях отдельно описали изменения, которые генерируются в&nbsp;документе, и&nbsp;правки, которые отображаются пользователю. </p>
           <figure>
-            <a href="images/image_14.png"><img src="previews/image_14.webp" width="1600" height="900" alt="Матрица последовательного внесения правок" decoding="async" loading="lazy"></a>
+            <a href="images/image_14.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_14.webp">
+                <img src="images/image_14.png" width="1600" height="900" alt="Матрица последовательного внесения правок" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Последовательное внесение правок. В&nbsp;таблице учтены все возможные пересечения действий пользователей в&nbsp;случаях, когда работает 1&nbsp;пользователь, разные пользователи, а&nbsp;также положение нового исправления относительно имеющихся</figcaption>
           </figure>
           <figure>
-            <a href="images/image_15.png"><img src="previews/image_15.webp" width="1600" height="900" alt="Матрица последовательного принятия или&nbsp;отклонения правок" decoding="async" loading="lazy"></a>
+            <a href="images/image_15.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_15.webp">
+                <img src="images/image_15.png" width="1600" height="900" alt="Матрица последовательного принятия или&nbsp;отклонения правок" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Последовательное применение и&nbsp;отклонение правок тоже представлено в&nbsp;виде матрицы и&nbsp;учтены все перечесения различных видов правок</figcaption>
           </figure>
           <h3>Проверка пользовательских ожиданий</h3>
@@ -122,7 +186,12 @@
           <h4>Задание </h4>
           <p>Перед&nbsp;вами 2&nbsp;документа, из&nbsp;одного вы копируете информацию, в&nbsp;другой вставляете. Каждый фрагмент содержит предложение по&nbsp;его исправлению от&nbsp;другого пользователя. Как&nbsp;вы думаете, что&nbsp;вставится в&nbsp;новый документ? Что&nbsp;бы вы ожидали?</p>
           <figure>
-            <a href="images/image_17.png"><img src="previews/image_17.webp" width="1600" height="900" alt="Задание исследования с&nbsp;исходным документом и&nbsp;документом для&nbsp;вставки фрагмента" decoding="async" loading="lazy"></a>
+            <a href="images/image_17.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_17.webp">
+                <img src="images/image_17.png" width="1600" height="900" alt="Задание исследования с&nbsp;исходным документом и&nbsp;документом для&nbsp;вставки фрагмента" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Дизайн эксперимента</figcaption>
           </figure>
           <p>Участники видели два документа и&nbsp;объясняли, что, по&nbsp;их мнению, вставится: содержимое, содержимое вместе с&nbsp;правками или&nbsp;результат применения правки.</p>
@@ -147,34 +216,64 @@
           <h3>Интерфейсное решение </h3>
           <p>Проработала требования для&nbsp;изменений свойств и&nbsp;форматирования таблиц и&nbsp;строк, операций со&nbsp;всей таблицей, строками и&nbsp;столбцами, редактирования содержимого ячеек и&nbsp;групповых правок. </p>
           <figure>
-            <a href="images/image_18.png"><img src="previews/image_18.webp" width="1600" height="900" alt="Разделы требований к&nbsp;правкам и&nbsp;список связанных задач" decoding="async" loading="lazy"></a>
+            <a href="images/image_18.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_18.webp">
+                <img src="images/image_18.png" width="1600" height="900" alt="Разделы требований к&nbsp;правкам и&nbsp;список связанных задач" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Финальная документация содержала самые необходимые функции для&nbsp;MVP: правки при&nbsp;изменения свойств, действия с&nbsp;таблицей, строкой, столбцом, ячейкой, групповые правки, порядок отображения в&nbsp;ленте, принятие и&nbsp;отклонение правок, отображение правок на&nbsp;разных фрагментах</figcaption>
           </figure>
           <p>Спроектировала обозначения добавления, удаления и&nbsp;форматирования, состояния наведения и&nbsp;выбора, сообщения с&nbsp;автором и&nbsp;временем изменения. </p>
           <figure>
-            <a href="images/image_20.png"><img src="previews/image_20.webp" width="1600" height="900" alt="Обозначения добавления, удаления и&nbsp;форматирования таблицы и&nbsp;строки" decoding="async" loading="lazy"></a>
+            <a href="images/image_20.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_20.webp">
+                <img src="images/image_20.png" width="1600" height="900" alt="Обозначения добавления, удаления и&nbsp;форматирования таблицы и&nbsp;строки" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Фрагмент макета отображения правок для&nbsp;добавления, удаления, форматирования, единичное и&nbsp;множественное отображение</figcaption>
           </figure>
           <p>В&nbsp;спецификации закрепила порядок правок в&nbsp;ленте: изменения таблицы&nbsp;— перед изменениями строк, изменения строк&nbsp;— перед их содержимым. </p>
           <figure>
-            <a href="images/image_19.png"><img src="previews/image_19.webp" width="1600" height="900" alt="Фрагмент спецификации с&nbsp;правилами отображения и&nbsp;порядка правок" decoding="async" loading="lazy"></a>
+            <a href="images/image_19.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_19.webp">
+                <img src="images/image_19.png" width="1600" height="900" alt="Фрагмент спецификации с&nbsp;правилами отображения и&nbsp;порядка правок" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Фрагмент спецификации по&nbsp;поведению правок на&nbsp;форматирование и&nbsp;правок на&nbsp;строку</figcaption>
           </figure>
           <p>Для&nbsp;правки на&nbsp;нескольких страницах сообщение показывается один раз, на&nbsp;странице её начала.</p>
           <figure>
-            <a href="images/image_21.png"><img src="previews/image_21.webp" width="1600" height="900" alt="Сообщение у&nbsp;начала правки в&nbsp;таблице, которая продолжается на&nbsp;следующей странице" decoding="async" loading="lazy"></a>
+            <a href="images/image_21.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_21.webp">
+                <img src="images/image_21.png" width="1600" height="900" alt="Сообщение у&nbsp;начала правки в&nbsp;таблице, которая продолжается на&nbsp;следующей странице" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Отображение правки, если контент разделяется на&nbsp;2&nbsp;страницы</figcaption>
           </figure>
           <p>Предусмотрела предупреждение о&nbsp;действиях, которые не&nbsp;записываются как&nbsp;правки, и&nbsp;подтверждение перед действием, при&nbsp;котором будут потеряны связанные изменения. </p>
           <figure>
-            <a href="images/image_22.png"><img src="previews/image_22.webp" width="1600" height="900" alt="Диалог с&nbsp;предупреждением о&nbsp;действии, которое не записывается как&nbsp;правка" decoding="async" loading="lazy"></a>
+            <a href="images/image_22.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_22.webp">
+                <img src="images/image_22.png" width="1600" height="900" alt="Диалог с&nbsp;предупреждением о&nbsp;действии, которое не записывается как&nbsp;правка" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Если что-то из&nbsp;предложенных правок пользователя мы не&nbsp;можем обработать, показываем сообщение, что&nbsp;правка не&nbsp;отобразиться, а&nbsp;изменения сразу внесутся в&nbsp;таблицу</figcaption>
           </figure>
           <h3>Этапы выпуска и&nbsp;дальнейшее развитие</h3>
           <p>На&nbsp;первом этапе поддержали четыре типа структурных правок: добавление и&nbsp;удаление таблицы, добавление и&nbsp;удаление строки. Затем прорабатывали группировку правок, изменения свойств таблицы и&nbsp;уведомления об&nbsp;ограничениях.</p>
           <p>Для&nbsp;следующих этапов выделили работу с&nbsp;вложенными таблицами, объединением и&nbsp;разделением ячеек, улучшение текстов сообщений об&nbsp;объектах и&nbsp;различимости цветов соавторов. </p>
           <figure>
-            <a href="images/image_23.png"><img src="previews/image_23.webp" width="1600" height="900" alt="План развития рецензирования таблиц по&nbsp;этапам" decoding="async" loading="lazy"></a>
+            <a href="images/image_23.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image_23.webp">
+                <img src="images/image_23.png" width="1600" height="900" alt="План развития рецензирования таблиц по&nbsp;этапам" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Задачи для&nbsp;следующих этапов работы над&nbsp;рецензированием таблиц</figcaption>
           </figure>
           <blockquote>отображение изменений форматирования таблицы и&nbsp;ее частей</blockquote>
@@ -195,20 +294,40 @@
           <p>Подготовила интерфейсные состояния и&nbsp;совместно с&nbsp;аналитиками спецификацию с&nbsp;правилами отображения, принятия и&nbsp;отклонения правок. </p>
           <div class="case-documents case-results">
             <figure>
-              <a href="images/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.png"><img src="previews/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.webp" width="852" height="804" alt="Макеты изменений свойств таблицы и&nbsp;операций с&nbsp;таблицей, строками и&nbsp;столбцами" decoding="async" loading="lazy"></a>
+              <a href="images/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.png">
+                <picture>
+                  <source type="image/webp" srcset="previews/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.webp">
+                  <img src="images/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.png" width="852" height="804" alt="Макеты изменений свойств таблицы и&nbsp;операций с&nbsp;таблицей, строками и&nbsp;столбцами" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Изменения свойств таблицы и&nbsp;операции с&nbsp;таблицей, строками и&nbsp;столбцами</figcaption>
             </figure>
             <figure>
-              <a href="images/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.png"><img src="previews/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.webp" width="852" height="803" alt="Макеты групповых правок, уведомлений и&nbsp;правки на&nbsp;нескольких страницах" decoding="async" loading="lazy"></a>
+              <a href="images/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.png">
+                <picture>
+                  <source type="image/webp" srcset="previews/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.webp">
+                  <img src="images/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.png" width="852" height="803" alt="Макеты групповых правок, уведомлений и&nbsp;правки на&nbsp;нескольких страницах" decoding="async" loading="lazy">
+                </picture>
+              </a>
               <figcaption>Групповые правки, уведомления и&nbsp;правка на&nbsp;нескольких страницах</figcaption>
             </figure>
           </div>
           <figure>
-            <a href="images/image-1.png"><img src="previews/image-1.webp" width="1600" height="365" alt="Последовательность состояний таблицы с&nbsp;правками в&nbsp;документе" decoding="async" loading="lazy"></a>
+            <a href="images/image-1.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image-1.webp">
+                <img src="images/image-1.png" width="1600" height="365" alt="Последовательность состояний таблицы с&nbsp;правками в&nbsp;документе" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Взаимодействие выделения правки в&nbsp;состоянии Hover, Editing, Default и&nbsp;с&nbsp;другими правками</figcaption>
           </figure>
           <figure>
-            <a href="images/image-2.png"><img src="previews/image-2.webp" width="1600" height="774" alt="Варианты отображения правок на&nbsp;двух страницах документа" decoding="async" loading="lazy"></a>
+            <a href="images/image-2.png">
+              <picture>
+                <source type="image/webp" srcset="previews/image-2.webp">
+                <img src="images/image-2.png" width="1600" height="774" alt="Варианты отображения правок на&nbsp;двух страницах документа" decoding="async" loading="lazy">
+              </picture>
+            </a>
             <figcaption>Взаимодействие правки на&nbsp;всю таблицу и&nbsp;правки на&nbsp;2&nbsp;страницах</figcaption>
           </figure>
         </section>

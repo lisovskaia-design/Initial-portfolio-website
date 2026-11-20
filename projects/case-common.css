@@ -67,7 +67,7 @@
 
 .case-page figure { width: fit-content; max-width: 100%; }
 .case-page figure > a { display: block; cursor: zoom-in; }
-.case-page figure img { display: block; max-width: 100%; height: auto; }
+.case-page figure img { display: block; max-width: 100%; height: auto; border-radius: var(--radius-sm);}
 .case-page .case-platforms,
 .case-page figcaption { margin-top: 12px; color: var(--secondary); font-size: .8rem; }
 .case-page figcaption { contain: inline-size; line-height: 1.5; }
@@ -92,7 +92,6 @@
 }
 
 @media (min-width: 1024px) {
-  .case-page figure img { border-radius: 4px; }
   .case-page .case-section-pair {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

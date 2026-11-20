@@ -1,6 +1,11 @@
+:root {
+  --radius-lg: 24px;
+  --radius-sm: 12px;
+}
+
 @font-face {
   font-family: "Noto Sans";
-  src: url("assets/noto-sans.ttf") format("truetype");
+  src: url("assets/noto-sans.woff2") format("woff2");
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -42,8 +47,9 @@ h2 { font-weight: 400; font-size: 48px; line-height: 58px; }
   flex: 0 0 100px;
   width: 100px;
   height: 100px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   background: url("assets/anastasia.png") 25.926% 0% / 112.273% no-repeat;
+  background-image: image-set(url("assets/anastasia.avif") type("image/avif"), url("assets/anastasia.png"));
 }
 
 .greeting-text {
@@ -118,6 +124,7 @@ h1 {
 
 
 .project-image {
+  content-visibility: auto;
   position: relative;
   align-self: stretch;
   justify-self: end;
@@ -126,7 +133,7 @@ h1 {
   height: 100%;
   aspect-ratio: 688 / 452;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   background: #3c3c3c;
   transform-origin: center;
 }
@@ -136,22 +143,38 @@ h1 {
 .image-tracking .image-layer {
   inset: -38.938% -33.736% -6.637% -32.884%;
   background-image: url("assets/tracking.png");
+  background-image: image-set(url("assets/tracking.webp") type("image/webp"), url("assets/tracking.png"));
   opacity: 0.94;
 }
 
 .image-system { align-self: start; height: auto; }
-.image-system .image-layer { background-image: url("assets/design-system.png"); }
+.image-system .image-layer {
+  background-image: url("assets/design-system.png");
+  background-image: image-set(url("assets/design-system.avif") type("image/avif"), url("assets/design-system.png"));
+}
+
+html:lang(en) .image-system .image-layer {
+  background-image: url("assets/design-system-en.png");
+  background-image: image-set(url("assets/design-system-en.avif") type("image/avif"), url("assets/design-system-en.png"));
+}
 
 .image-fintech { background: #1e1e1e; }
 .image-fintech .image-layer {
   inset: 5.31% 1.744%;
   background-image: url("assets/fintech.png");
+  background-image: image-set(url("assets/fintech.avif") type("image/avif"), url("assets/fintech.png"));
 }
 
 .image-reword .image-layer {
   inset: -1.327% 0 -93.363%;
   background-position: 50% 0;
   background-image: url("assets/reword.png");
+  background-image: image-set(url("assets/reword.avif") type("image/avif"), url("assets/reword.png"));
+}
+
+html:lang(en) .image-reword .image-layer {
+  background-image: url("assets/reword-en.png");
+  background-image: image-set(url("assets/reword-en.avif") type("image/avif"), url("assets/reword-en.png"));
 }
 
 .image-hse { background: #060606; }
@@ -159,6 +182,7 @@ h1 {
   inset: 14.381% 1.163% 14.159% 1.308%;
   border-radius: 8px;
   background-image: url("assets/hse.png");
+  background-image: image-set(url("assets/hse.avif") type("image/avif"), url("assets/hse.png"));
 }
 
 .footer {
