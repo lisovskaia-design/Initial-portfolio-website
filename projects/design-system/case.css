@@ -1,12 +1,7 @@
 .case-page {
   --text-width: 38rem;
-  --wide-width: 58rem;
   --rule: #515151;
-}
-
-.case-page main {
-  width: min(calc(100% - 64px), var(--wide-width));
-  margin: 0 auto;
+  --preview-height-limit: 50rem;
 }
 
 .case-page nav { font-size: 1rem; }
@@ -17,11 +12,7 @@
 
 :where(.case-page .footer) { font-size: 1rem; }
 
-.case-page h1 { max-width: var(--title-width); }
-
 .case-page h1 span { display: inline-block; }
-
-.case-page .case-summary { max-width: var(--text-width); }
 
 .case-page figure { margin: 0; }
 
@@ -45,7 +36,11 @@
   margin-block: clamp(28px, 3.5vw, 52px);
 }
 
-.case-page section > figure { width: fit-content; }
+/* The width limit reserves the same space that the 50rem height cap gives a loaded preview. */
+.case-page :where(section, .case-documents) > figure {
+  width: fit-content;
+  max-width: min(100%, var(--preview-width-limit, 100%));
+}
 
 .case-page .case-documents { display: contents; }
 
@@ -54,8 +49,7 @@
 }
 
 .case-page :where(section, .case-documents) > figure img {
-  width: auto;
-  max-height: 50rem;
+  max-height: var(--preview-height-limit);
 }
 
 .case-page :is(.case-pair, .case-outcomes) {
@@ -111,8 +105,7 @@
 .case-page .case-metrics td { vertical-align: middle; }
 
 @media (min-width: 1024px) {
-  .case-page { --text-width: var(--title-width); }
-  .case-page section { max-width: var(--text-width); }
+  .case-page { --text-width: var(--content-width); }
   .case-page figure:is(.case-portrait, .case-centered) { margin-inline: auto; }
   .case-page figure.case-half { max-width: 50%; }
   .case-page h2 > strong { font-weight: inherit; }
@@ -126,18 +119,14 @@
     padding-inline-end: 64px;
     white-space: nowrap;
   }
-  .case-page .case-platforms { max-width: var(--text-width); }
   .case-page .case-outcomes {
-    max-width: var(--text-width);
     grid-template-columns: 1fr;
   }
-  .case-page .case-section-pair { max-width: var(--text-width); }
   .case-page .case-documents {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
     gap: clamp(20px, 3vw, 48px);
-    max-width: var(--text-width);
   }
   .case-page .case-documents { margin-block: clamp(28px, 3.5vw, 52px); }
   .case-page .case-documents > figure { margin-block: 0; }
@@ -153,8 +142,6 @@
   .case-page .case-documents > .case-half { max-width: 100%; }
 
   .case-page .case-color-docs { grid-template-columns: 1348fr 576fr; }
-  .case-page .case-color-docs > .case-pair { display: contents; }
-  .case-page .case-color-docs > .case-pair > div:first-child { display: none; }
 
   .case-page .case-dump-talk { grid-template-columns: minmax(0, 5fr) minmax(0, 2fr); }
   .case-page .case-dump-talk > div:has(figure) {
@@ -175,6 +162,7 @@
 
 @media (768px <= width < 1024px) {
   .case-page .case-pair { grid-template-columns: 1fr; }
+  .case-page :where(section, .case-documents) > figure { max-width: 100%; }
   .case-page figure img {
     max-height: none;
   }

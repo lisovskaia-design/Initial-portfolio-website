@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How I built a design system for MyOffice’s flagship desktop editors and helped a team of 200+ bring features to market 30% faster.">
+    <meta name="theme-color" content="#222222">
+    <title>Design System — Anastasiia Lisovskaia</title>
+    <link rel="icon" href="../../../favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="../../../favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="preload" href="../../../assets/noto-sans.ttf" as="font" type="font/ttf" crossorigin="">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="../../../projects/case-common.css">
+    <link rel="stylesheet" href="../../../projects/design-system/case.css">
+  </head>
+  <body class="case-page">
+    <main>
+      <nav class="case-navigation" aria-label="Case study navigation">
+        <div class="contact-links language-switch" role="group" aria-label="Language">
+          <a class="contact-button" href="../../../projects/design-system/index.html" lang="ru" hreflang="ru" aria-label="Русский">RU</a>
+          <span lang="en" aria-current="page">EN</span>
+        </div>
+        <div class="contact-links">
+          <a class="contact-button" href="../../index.html#projects">← Back to case studies</a>
+        </div>
+      </nav>
+      <article>
+        <header>
+          <h1>A design system for a team of 200+&nbsp;members. Bringing features to market <span>30% faster</span></h1>
+          <p class="case-summary">Building a design system from scratch for MyOffice’s flagship desktop editors.</p>
+          <p class="case-platforms">0→1 · Design system for Linux, Windows and macOS</p>
+        </header>
+        <section>
+          <h2>About the project</h2>
+          <p>MyOffice builds software for businesses, including mobile, desktop and web document editors, email, team messaging and cloud storage.</p>
+          <table class="case-project-facts">
+            <tbody>
+              <tr>
+                <th scope="row">Users</th>
+                <td>1M+ monthly active users</td>
+              </tr>
+              <tr>
+                <th scope="row">Markets</th>
+                <td>B2B, B2G, B2C</td>
+              </tr>
+              <tr>
+                <th scope="row">Platform</th>
+                <td>Desktop</td>
+              </tr>
+              <tr>
+                <th scope="row">Operating systems</th>
+                <td>Windows, Linux, macOS</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="case-pair">
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/ad_-_desktop_B2C.png"><img src="../../../projects/design-system/previews/ad_-_desktop_B2C.webp" width="1440" height="835" alt="MyOffice editors for home users" decoding="async" loading="lazy"></a>
+                <figcaption>MyOffice for home users (B2C)<br><a href="https://myoffice.ru/products/ofis-dlya-doma/">https://myoffice.ru/products/ofis-dlya-doma/</a></figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/ad_-_desktop_B2B.png"><img src="../../../projects/design-system/previews/ad_-_desktop_B2B.webp" width="1440" height="835" alt="MyOffice Documents Desktop for businesses and government organizations" decoding="async" loading="lazy"></a>
+                <figcaption>MyOffice Documents Desktop (B2B, B2G)<br><a href="https://myoffice.ru/trial/">https://myoffice.ru/trial/</a></figcaption>
+              </figure>
+            </div>
+          </div>
+          <p><strong>The desktop editors team</strong><br>More than 200 designers, developers and testers worked on the spreadsheet, word processing and presentation apps.</p>
+          <p>The team grew rapidly in 2023. To keep shipping features at the same pace and quality, and improve on both, we had to change how we worked. A design system became essential.</p>
+        </section>
+        <div class="case-section-pair">
+          <section>
+            <h2>Who we designed for</h2>
+            <ul>
+              <li>The 200+ designers, developers and testers building the desktop editors</li>
+              <li>The 1M+&nbsp;people using the desktop editors each month</li>
+            </ul>
+          </section>
+          <section>
+            <h2>The design&nbsp;system team</h2>
+            <p>The number of people working on the design system varied by stage.</p>
+            <ul>
+              <li>4–18&nbsp;designers</li>
+              <li>2–7&nbsp;developers</li>
+            </ul>
+          </section>
+        </div>
+        <div class="case-section-pair">
+          <section>
+            <h2>Where we started</h2>
+            <ul>
+              <li>People struggled to coordinate decisions across a team of 200+</li>
+              <li>400 duplicate components in the codebase</li>
+              <li>Designers detached component instances and modified them independently in their own files</li>
+              <li>Inconsistent UX and UI decisions</li>
+              <li>140+&nbsp;hours lost each sprint trying to establish guidelines that had never been written</li>
+              <li>A UI&nbsp;kit that didn’t meet designers’ needs and encouraged them to detach instances</li>
+              <li>No accessibility support</li>
+              <li>A large backlog of technical debt</li>
+              <li>No documentation or agreed design patterns</li>
+              <li>Workflows that depended on manual steps</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Results</h2>
+            <ul>
+              <li>60+ components in Figma</li>
+              <li>20+ Qt/QML components in code</li>
+              <li>More than 10,000 lines of code optimized</li>
+              <li>Icon, style and component libraries built from scratch</li>
+              <li>Support for accessibility guidelines, including WCAG</li>
+              <li>One-click workflows for developers that replaced manual steps and rounds of approvals</li>
+              <li>Design system metrics and feedback from the team</li>
+              <li>A shared knowledge base</li>
+              <li>Desktop Editors Storybook, a custom component explorer built from scratch for Qt/QML</li>
+              <li>Support for UI themes and a design token system that could grow with the product</li>
+            </ul>
+          </section>
+        </div>
+        <section>
+          <h2><strong>My role</strong></h2>
+          <p>I led the design work, managed the project and worked on the components myself.</p>
+          <p>I started by asking where people were losing time. I investigated the bottlenecks and tested possible solutions in my own design work. Then I introduced the new workflows to the wider team and gathered feedback from designers, developers and testers.</p>
+        </section>
+        <section>
+          <h2>How we worked</h2>
+          <ul>
+            <li>I put together a proof of concept and modeled the cost of our existing workflows and how those costs would change with a design system.</li>
+            <li>That gave us the case for a dedicated team.</li>
+            <li>I led the team as we built and populated each library from scratch.</li>
+            <li>I proposed new workflows. We tried them as a team and worked through the problems that slowed us down.</li>
+            <li>The new workflows let us automate parts of development.</li>
+            <li>I defined metrics for the design system, and we put them into practice as a team.</li>
+          </ul>
+          <p class="case-aside">Here’s how each part of the project unfolded.</p>
+        </section>
+        <section>
+          <h2>Proof of concept</h2>
+          <h3>Step&nbsp;1. Model the investment</h3>
+          <p>I calculated how much our existing workflows were costing us, identified where we could save time and worked out which savings a design system could deliver. Those figures became the business case for investing in the system.</p>
+          <table class="case-metrics">
+            <tbody>
+              <tr>
+                <th scope="row">15.4%</th>
+                <td>minimum projected savings in process costs after rollout</td>
+              </tr>
+              <tr>
+                <th scope="row">2&nbsp;months</th>
+                <td>projected payback period after rollout</td>
+              </tr>
+              <tr>
+                <th scope="row">3%</th>
+                <td>savings in process costs needed to break even</td>
+              </tr>
+              <tr>
+                <th scope="row">22.7%</th>
+                <td>projected ROI at the break-even point</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>I modeled three rollout scenarios, depending on which workflows the system would cover.</p>
+          <ul>
+            <li>Design only</li>
+            <li>Design and development</li>
+            <li>Design, development and testing</li>
+          </ul>
+          <div class="case-documents case-proof-docs">
+            <figure class="case-portrait" style="--preview-width-limit: calc(var(--preview-height-limit) * 1103 / 2000)">
+              <a href="../../../projects/design-system/images/weak_points_in_processes.png"><img src="../../../projects/design-system/previews/weak_points_in_processes.webp" width="1103" height="2000" alt="Document mapping problems in existing workflows to proposed design system improvements" decoding="async" loading="lazy"></a>
+              <figcaption>I documented where our workflows broke down and how the design system could help.</figcaption>
+            </figure>
+            <figure class="case-portrait" style="--preview-width-limit: calc(var(--preview-height-limit) * 845 / 2000)">
+              <a href="../../../projects/design-system/images/POC.png"><img src="../../../projects/design-system/previews/POC.webp" width="845" height="2000" alt="Excerpts from the DESY proof of concept in the team’s Confluence space" decoding="async" loading="lazy"></a>
+              <figcaption>Key excerpts from the proof of concept in our Confluence space.<br>DESY was the name we gave the design system.</figcaption>
+            </figure>
+          </div>
+          <h3>Step&nbsp;2. Build support</h3>
+          <p>I presented the proposal to the entire design department and found colleagues who would back it. I also discussed it with my lead, the company’s head of product design and the engineering leads.</p>
+          <blockquote>Together we got the proposal in front of the CTO.</blockquote>
+          <h3>Step&nbsp;3. Secure a team</h3>
+          <blockquote>We secured resources and a dedicated design system team.</blockquote>
+          <div class="case-pair">
+            <div>
+              <p>In 2024, I spoke about this work at ITGM’16 in St.&nbsp;Petersburg. I walked through the process and the biggest mistakes we made along the way.</p>
+            </div>
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/ITGM16_2024.jpg"><img src="../../../projects/design-system/previews/ITGM16_2024.webp" width="1440" height="869" alt="Speaking at ITGM’16 in 2024" decoding="async" loading="lazy"></a>
+              </figure>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>The icon library</h2>
+          <p>While we waited for approval for the design system team, I started organizing the icon library.</p>
+          <h3>Where we started</h3>
+          <ul>
+            <li>No shared icon library or rules for using icons</li>
+            <li>No documented workflow</li>
+            <li>No naming conventions or agreed place to store icons</li>
+            <li>Different icon sets in Figma and in code</li>
+            <li>Duplicate icons and size variants. We drew each icon three times, once for each editor.</li>
+            <li>PNG assets that lost sharpness when the interface scaled</li>
+            <li>More than 5,000 obsolete graphic assets in the codebase</li>
+          </ul>
+          <h3>My contribution</h3>
+          <ul>
+            <li>I created a central icon library.</li>
+            <li>I defined and documented how we would work on icons.</li>
+            <li>I wrote guidelines for drawing icons, choosing sizes and using them in the interface.</li>
+            <li>I led the migration from PNG to SVG.</li>
+            <li>I tested the new workflow in my own design work.</li>
+            <li>I worked with the team to automate icon delivery.</li>
+          </ul>
+          <figure>
+            <a href="../../../projects/design-system/images/icons_docs.png"><img src="../../../projects/design-system/previews/icons_docs.webp" width="1440" height="737" alt="Guidelines for naming and storing icons" decoding="async" loading="lazy"></a>
+            <figcaption>Our conventions for icon names and file storage</figcaption>
+          </figure>
+          <figure class="case-centered" style="--preview-width-limit: calc(var(--preview-height-limit) * 1440 / 1943)">
+            <a href="../../../projects/design-system/images/icons_process.png"><img src="../../../projects/design-system/previews/icons_process.webp" width="1440" height="1943" alt="Icon drawing workflow with a peer review in step three" decoding="async" loading="lazy"></a>
+            <figcaption>By this point the workflow ran without me. In step three, another designer reviews the finished icons.</figcaption>
+          </figure>
+          <h3>The design team’s contribution</h3>
+          <ul>
+            <li>Under my direction, the designers redrew more than 1,500 icons as SVGs.</li>
+            <li>They told me what worked and where they got stuck, so I could quickly adapt the workflow to the team’s needs.</li>
+            <li>They learned to use GitHub during the migration from PNG to SVG.<br>Later, we automated icon export from Figma and retired that manual step.</li>
+          </ul>
+          <div class="case-documents case-icon-docs">
+            <figure class="case-portrait" style="--preview-width-limit: calc(var(--preview-height-limit) * 1232 / 2000)">
+              <a href="../../../projects/design-system/images/1500_icons_preview.png"><img src="../../../projects/design-system/previews/1500_icons_preview.webp" width="1232" height="2000" alt="Figma library of more than 1,500 SVG icons drawn by 15 designers" decoding="async" loading="lazy"></a>
+              <figcaption>Fifteen designers worked on the library, drawing more than 1,500 SVG icons.</figcaption>
+            </figure>
+            <figure>
+              <a href="../../../projects/design-system/images/icons_work_screenshot.png"><img src="../../../projects/design-system/previews/icons_work_screenshot.webp" width="1440" height="588" alt="Shared Figma file showing icon assignments, drawings and review status" decoding="async" loading="lazy"></a>
+              <figcaption>We used this file to divide up the icons, draw them and track their status. I reviewed the work against our guidelines and checklists. In time, every designer could draw icons for their own features and keep them consistent with the rest of the product.</figcaption>
+            </figure>
+            <figure class="case-portrait" style="--preview-width-limit: calc(var(--preview-height-limit) * 786 / 2000)">
+              <a href="../../../projects/design-system/images/design_icons_refactoring_process.png"><img src="../../../projects/design-system/previews/design_icons_refactoring_process.webp" width="786" height="2000" alt="Designers’ guide to migrating icons from PNG to SVG and removing duplicates" decoding="async" loading="lazy"></a>
+              <figcaption>The migration guide explains how to identify duplicates and reduce the number of assets in the library as designers convert icons to SVG.</figcaption>
+            </figure>
+          </div>
+          <figure class="case-centered" style="--preview-width-limit: calc(var(--preview-height-limit) * 1440 / 1397)">
+            <a href="../../../projects/design-system/images/design_repo_v1_-_short.png"><img src="../../../projects/design-system/previews/design_repo_v1_-_short.webp" width="1440" height="1397" alt="Early workflow with designers managing the icon repository in Git" decoding="async" loading="lazy"></a>
+            <figcaption>In the first version of the workflow, designers managed the Git repository. Later, the product build pulled icons from Figma automatically.</figcaption>
+          </figure>
+          <h3>The development team’s contribution</h3>
+          <ul>
+            <li>The developers set up a dedicated GitHub repository and wrote instructions for designers.</li>
+            <li>They replaced PNG icons with SVGs, using automation where possible and making the remaining changes by hand.</li>
+            <li>They wrote a script that uses the Figma API to pull all the icons into the product build.</li>
+          </ul>
+          <div class="case-documents case-dev-docs">
+            <figure class="case-centered case-half">
+              <a href="../../../projects/design-system/images/refactoring_process.png"><img src="../../../projects/design-system/previews/refactoring_process.webp" width="1440" height="686" alt="Steps for migrating icons from PNG to SVG" decoding="async" loading="lazy"></a>
+              <figcaption>The PNG-to-SVG migration workflow</figcaption>
+            </figure>
+            <figure>
+              <a href="../../../projects/design-system/images/dev_docs_icons_-_short.png"><img src="../../../projects/design-system/previews/dev_docs_icons_-_short.webp" width="1440" height="1108" alt="Developer guide to loading icons into the product automatically" decoding="async" loading="lazy"></a>
+              <figcaption>Instructions for developers on importing icons automatically</figcaption>
+            </figure>
+          </div>
+          <h3>What changed</h3>
+          <div class="case-outcomes">
+            <div>
+              <h4>For the team</h4>
+              <p>Designers and developers now had a straightforward way to get an icon into the product.</p>
+              <p>— Any developer could import icons with one click.</p>
+              <p>— A designer only had to draw the icon and add it to the library.</p>
+              <p>— Everyone had access to the same library, documentation, workflow and guidelines.</p>
+              <p>— Designers learned to draw icons to the same standards and could review each other’s work without waiting for me.</p>
+            </div>
+            <div>
+              <h4>For the business</h4>
+              <p>— A single click replaced hours of manually integrating icons.</p>
+              <p>— High-quality, scalable SVG assets made the product look more polished and consistent.</p>
+            </div>
+            <div>
+              <h4>For the 1M+&nbsp;people using the product</h4>
+              <p>— We removed 200+ duplicates and more than 5,000 obsolete graphic assets. The build got smaller and the interface gained a more consistent visual language.</p>
+              <p>— Icons stayed sharp as users scaled the interface or moved between screen resolutions.</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>The component library</h2>
+          <p>As design system lead, I started organizing the component library while we were rebuilding the icon workflow.</p>
+          <h3>Where we started</h3>
+          <ul>
+            <li>The UI&nbsp;kit fell short of the product’s functional requirements and slowed designers down.</li>
+            <li>Designers detached instances, made copies and customized them for individual features.</li>
+            <li>Developers did much the same thing. They would take a similar component and adapt it locally. The codebase contained 400+ duplicates.</li>
+            <li>Technical constraints in Qt/QML limited the functionality we could offer users.</li>
+            <li>Figma components and their implementations had drifted apart.</li>
+            <li>The team had no agreed workflows or guidelines.</li>
+            <li>Every sprint, people lost time repeating the same work.<br>They built components, documented them and worked through edge cases and technical constraints all over again.</li>
+          </ul>
+          <h3>My contribution</h3>
+          <ul>
+            <li>I inventoried the components designers needed, from basic controls to complex components and templates.</li>
+            <li>I designed the core components and UX patterns and set the direction for the design system across the desktop editors.</li>
+            <li>I designed Desktop Editors Storybook and led its development and launch. We built this component explorer from scratch for Qt/QML.</li>
+            <li>I set up the design workflows, mentored the designers and reviewed their work as they went.</li>
+            <li>I set the strategy, built the roadmaps, planned the work and allocated the team’s time.</li>
+          </ul>
+          <div class="case-pair">
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/basic_components.png"><img src="../../../projects/design-system/previews/basic_components.webp" width="1200" height="1500" alt="Base component checklist in Figma showing completed and planned components" decoding="async" loading="lazy"></a>
+                <figcaption>Our base component list in Figma. A check mark means the component is implemented. Unchecked items are in the backlog.</figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure class="case-portrait">
+                <a href="../../../projects/design-system/images/component_description-template.png"><img src="../../../projects/design-system/previews/component_description-template.webp" width="966" height="2000" alt="Component documentation template with fields for technology, documentation status and designer" decoding="async" loading="lazy"></a>
+                <figcaption>Our component template records the implementation technology, the status of the documentation and the designer responsible.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <figure>
+            <a href="../../../projects/design-system/images/storybook.png"><img src="../../../projects/design-system/previews/storybook.webp" width="1440" height="864" alt="Desktop Editors Storybook showing the properties and states of a tab bar" decoding="async" loading="lazy"></a>
+            <figcaption>The initial design for Desktop Editors Storybook</figcaption>
+          </figure>
+          <figure class="case-centered" style="--preview-width-limit: calc(var(--preview-height-limit) * 1440 / 1979)">
+            <a href="../../../projects/design-system/images/desy_roadmap_2026.png"><img src="../../../projects/design-system/previews/desy_roadmap_2026.webp" width="1440" height="1979" alt="Excerpt from the 2026 DESY strategy showing progress and definitions of done" decoding="async" loading="lazy"></a>
+            <figcaption>Part of the 2026 design system strategy.<br>I wrote the first strategy in 2025, while we were actively building the system. I updated it to reflect what we had delivered that year. Each section sets out a definition of done for design and development, completed work and plans for the following year.</figcaption>
+          </figure>
+          <h3>The design team’s contribution</h3>
+          <p>Between two and five designers worked on components, depending on the stage of the project and the pace of delivery.</p>
+          <p>Their work included the following.</p>
+          <ul>
+            <li>They designed 60+ components in Figma.</li>
+            <li>They designed the base components from scratch, studying their use across a product with more than 100 features.</li>
+            <li>They also designed complex components from scratch, including dialogs, toolbars and supporting side panels.</li>
+            <li>They refined and expanded the emerging library of guidelines and UX patterns.</li>
+            <li>They redesigned the entire style library.</li>
+            <li>They created a glossary and kept it up to date so that 200+ designers, developers and testers could use the same terms.</li>
+          </ul>
+          <figure>
+            <a href="../../../projects/design-system/images/libs_all.png"><img src="../../../projects/design-system/previews/libs_all.webp" width="1440" height="571" alt="Figma libraries containing more than 60 components" decoding="async" loading="lazy"></a>
+            <figcaption>Together, these Figma libraries contain more than 60 components.</figcaption>
+          </figure>
+          <figure class="case-centered" style="--preview-width-limit: calc(var(--preview-height-limit) * 1440 / 1956)">
+            <a href="../../../projects/design-system/images/dialogs_docs.png"><img src="../../../projects/design-system/previews/dialogs_docs.webp" width="1440" height="1956" alt="Documentation for the dialog component" decoding="async" loading="lazy"></a>
+            <figcaption>How we documented the dialog component</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/design-system/images/panel_docs.png"><img src="../../../projects/design-system/previews/panel_docs.webp" width="1440" height="1004" alt="Right-hand panel component showing different spreadsheet functions" decoding="async" loading="lazy"></a>
+            <figcaption>The spreadsheet editor uses the same right-hand panel component for several functions.</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/design-system/images/glossary.png"><img src="../../../projects/design-system/previews/glossary.webp" width="1440" height="1213" alt="Shared glossary of design system terms" decoding="async" loading="lazy"></a>
+            <figcaption>Anyone on the team of 200+ could discuss a UI element and help choose the most precise name for it in the glossary.</figcaption>
+          </figure>
+          <h3>The development team’s contribution</h3>
+          <p>Between two and seven developers worked on the design system, depending on the stage of the project and the pace of delivery.</p>
+          <p>Here’s what they built and documented.</p>
+          <ul>
+            <li>They implemented more than 20 base components in Qt/QML.</li>
+            <li>They built a custom Qt/QML component explorer from scratch and added 20+ base components to it.</li>
+            <li>They wrote technical documentation for each component.</li>
+            <li>They refactored a 12-year-old codebase so the new components could replace the old ones in the product.</li>
+            <li>At regular design system demos, they taught designers and testers how the Qt/QML components worked and where the technology set limits.</li>
+          </ul>
+          <figure class="case-portrait" style="--preview-width-limit: calc(var(--preview-height-limit) * 1010 / 2000)">
+            <a href="../../../projects/design-system/images/devdocs.png"><img src="../../../projects/design-system/previews/devdocs.webp" width="1010" height="2000" alt="Excerpt from the developer documentation for the button component" decoding="async" loading="lazy"></a>
+            <figcaption>The button entry in our developer documentation</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/design-system/images/preza_demo.png"><img src="../../../projects/design-system/previews/preza_demo.webp" width="1440" height="504" alt="Demo slides on the capabilities and limitations of Qt Widgets and QML" decoding="async" loading="lazy"></a>
+            <figcaption>In these design system demos, developers explained what Qt Widgets and QML could support and where the limits were.</figcaption>
+          </figure>
+          <h3>What changed</h3>
+          <div class="case-outcomes">
+            <div>
+              <h4>For the team</h4>
+              <p>The shared components and documentation made everyday design and development faster.</p>
+              <p>— We built and shipped 20+ base components, making development 28% faster.</p>
+              <p>— We designed 60+ complex components in Figma, making the design process 30% faster.</p>
+              <p>— We gave 200+ designers, developers and testers a shared reference for using each component in design and code, and for knowing what to check during testing.</p>
+              <p>— We resolved discrepancies between Figma and code.</p>
+              <p>— Both design reviews and code reviews became faster.</p>
+              <p>— After refactoring, components behaved the same way across features. Each release had fewer defects.</p>
+            </div>
+            <div>
+              <h4>For the business</h4>
+              <p>— Shared guidelines, documentation and workflows helped us bring features to market 30% faster.</p>
+              <p>— Refactoring legacy code and aligning it with Figma made releases more predictable. Fewer bugs meant less time spent testing.</p>
+              <p>— The base components improved the quality of UX and UI decisions and gave the product a more polished appearance.</p>
+              <p>— Fewer users contacted support with the same recurring questions.</p>
+            </div>
+            <div>
+              <h4>For the 1M+&nbsp;people using the product</h4>
+              <p>— Consistent component behavior and usage made the editors easier to learn and use.</p>
+              <p>— Users received new features sooner and were more satisfied with the product.</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>The color style library</h2>
+          <p>While the design system team built the component libraries and documented them, I started working on the color palette.</p>
+          <h3>Where we started</h3>
+          <ul>
+            <li>The palette was too limited to support new features.</li>
+            <li>Designers created colors locally in their own Figma files.</li>
+            <li>It was hard to tell who had introduced a color, where it was used or what it was for.</li>
+            <li>Developers added colors to a CSV file by hand, which led to errors.</li>
+            <li>Component styles, including colors, were scattered across the codebase. There was no shared library.</li>
+            <li>We had no common rules for choosing a shade.</li>
+            <li>The product had no support for dark mode or white-label branding.</li>
+          </ul>
+          <div class="case-pair">
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/palette_start.png"><img src="../../../projects/design-system/previews/palette_start.webp" width="1440" height="1153" alt="The product’s full color palette before the redesign" decoding="async" loading="lazy"></a>
+                <figcaption>The entire product palette before we started reworking it</figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/palette_start_2.png"><img src="../../../projects/design-system/previews/palette_start_2.webp" width="1440" height="1306" alt="Design files with colors detached from their Figma styles" decoding="async" loading="lazy"></a>
+                <figcaption>Before the migration, designers had detached colors from their shared styles.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <h3>My contribution</h3>
+          <ul>
+            <li>I investigated the problems with the existing palette and defined what the team and the product would need as they grew.</li>
+            <li>I laid the foundations for a color token library.</li>
+            <li>I audited color use across more than 100 features and built a new palette from scratch.</li>
+            <li>I designed a stable token structure that could grow with the product.</li>
+            <li>I built theming and accessibility support into the system.</li>
+            <li>I documented the principles behind the palette, its usage guidelines and the workflow for changing it.</li>
+            <li>I designed and tested that workflow, then rolled it out to the team of 200+.</li>
+          </ul>
+          <figure>
+            <a href="../../../projects/design-system/images/colors_all.png"><img src="../../../projects/design-system/previews/colors_all.webp" width="1440" height="487" alt="Full palette showing shades for the light and dark themes" decoding="async" loading="lazy"></a>
+            <figcaption>The complete palette includes shades for both light and dark themes.</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/design-system/images/dump_slide.png"><img src="../../../projects/design-system/previews/dump_slide.webp" width="1440" height="803" alt="Diagram of the three color token tiers from my February 2026 DUMP Spb talk" decoding="async" loading="lazy"></a>
+            <figcaption>The three tiers of our color token system, from my talk at DUMP&nbsp;Spb in February&nbsp;2026</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/design-system/images/color_tokens_guide.png"><img src="../../../projects/design-system/previews/color_tokens_guide.webp" width="1440" height="1302" alt="Contents of the designers’ guide to using and extending the color token system" decoding="async" loading="lazy"></a>
+            <figcaption>The guide covers how designers can use the existing tokens and extend the system.</figcaption>
+          </figure>
+          <h3>The design team’s contribution</h3>
+          <p>Fifteen designers took part in the main rollout of the new palette.</p>
+          <p>Their work included the following.</p>
+          <ul>
+            <li>They applied the new colors to components we had already built.</li>
+            <li>They mapped the old colors to the new ones and flagged cases where the mapping was unclear.</li>
+            <li>They gave feedback as they tried out the new system and workflows.</li>
+          </ul>
+          <figure>
+            <a href="../../../projects/design-system/images/toolbar_colors.png"><img src="../../../projects/design-system/previews/toolbar_colors.webp" width="1440" height="386" alt="Toolbars from each editor showing component-specific color tokens" decoding="async" loading="lazy"></a>
+            <figcaption>Each editor’s toolbar uses color tokens defined for that component.</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/design-system/images/TE_previw_dark_mode.png"><img src="../../../projects/design-system/previews/TE_previw_dark_mode.webp" width="1440" height="830" alt="Previews of the editors in dark mode" decoding="async" loading="lazy"></a>
+            <figcaption>The desktop editors in dark mode</figcaption>
+          </figure>
+          <div class="case-pair">
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/SE_previw_dark_mode.png"><img src="../../../projects/design-system/previews/SE_previw_dark_mode.webp" width="1440" height="830" alt="The spreadsheet editor in dark mode" decoding="async" loading="lazy"></a>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/PE_previw_dark_mode.png"><img src="../../../projects/design-system/previews/PE_previw_dark_mode.webp" width="1440" height="830" alt="The presentation editor in dark mode" decoding="async" loading="lazy"></a>
+              </figure>
+            </div>
+          </div>
+          <h3>The development team’s contribution</h3>
+          <p>Four developers implemented the new palette in code.</p>
+          <p>Here’s how they handled the migration.</p>
+          <ul>
+            <li>They inspected the legacy code to estimate the scope of the work and identify all the places where styles were defined.</li>
+            <li>They wrote a script that found more than 300 hardcoded colors.</li>
+            <li>They refactored styles across the product and consolidated them in a single library.</li>
+            <li>They automated the migration from the old CSS and CSV files to the new library.</li>
+            <li>Across 100+ features, they worked with designers to find places where styles hadn’t taken effect or colors needed adjusting.</li>
+          </ul>
+          <div class="case-documents case-color-docs">
+            <figure class="case-centered case-half">
+              <a href="../../../projects/design-system/images/script_find_colors.png"><img src="../../../projects/design-system/previews/script_find_colors.webp" width="1440" height="576" alt="Script matching hardcoded colors to palette colors using Euclidean distance in HSV color space" decoding="async" loading="lazy"></a>
+              <figcaption>Our script found hardcoded colors in the codebase and matched them to similar colors in the palette. It measured similarity using Euclidean distance in HSV color space.</figcaption>
+            </figure>
+            <figure>
+              <a href="../../../projects/design-system/images/color_card_zoom.png"><img src="../../../projects/design-system/previews/color_card_zoom.webp" width="1440" height="1348" alt="Hardcoded color swatches mapped to the interface elements that use them" decoding="async" loading="lazy"></a>
+              <figcaption>How we matched the hardcoded colors we found to elements in the interface</figcaption>
+            </figure>
+          </div>
+          <figure style="--preview-width-limit: calc(var(--preview-height-limit) * 1440 / 1348)">
+            <a href="../../../projects/design-system/images/color_cards_all.png"><img src="../../../projects/design-system/previews/color_cards_all.webp" width="1440" height="1348" alt="Shared Figma board cataloging more than 300 colors outside the original palette" decoding="async" loading="lazy"></a>
+            <figcaption>We used a shared Figma board to identify every distinct color outside the original palette. We found more than 300.</figcaption>
+          </figure>
+          <h3>What changed</h3>
+          <div class="case-outcomes">
+            <div>
+              <h4>For the team</h4>
+              <p>— Designers had a palette that covered every feature and fit the way they worked.</p>
+              <p>— Designers and developers shared a straightforward, documented workflow.</p>
+              <p>— Developers only needed to reference a color token by name once in the code.</p>
+              <p>— Designers could then adjust and fine-tune colors without changing any code.</p>
+            </div>
+            <div>
+              <h4>For the business</h4>
+              <p>— A one-click build replaced hours of hardcoding color values.</p>
+              <p>— We could apply multiple color fixes in one click. The same changes used to take weeks of work and approvals.</p>
+              <p>— The system made it easier to scale and respond to market requirements for white-label branding, dark mode and accessibility.</p>
+            </div>
+            <div>
+              <h4>For the 1M+&nbsp;people using the product</h4>
+              <p>— Interface elements became more visually consistent, with better contrast and overall visual quality.</p>
+              <p>— The product gained support for accessibility guidelines.</p>
+              <p>— We added dark mode.</p>
+            </div>
+          </div>
+          <div class="case-pair">
+            <div>
+              <p>I shared this work at DUMP&nbsp;Spb in February&nbsp;2026.</p>
+              <p>I explained how we built color tokens from scratch in a 12-year-old codebase with inconsistent visual design. I walked through each step, from auditing the code to rolling out the new workflow.</p>
+            </div>
+            <div>
+              <figure>
+                <a href="../../../projects/design-system/images/DUMP_Spb_Feb_2026.jpg"><img src="../../../projects/design-system/previews/DUMP_Spb_Feb_2026.webp" width="1440" height="1297" alt="Speaking at DUMP Spb in February 2026" decoding="async" loading="lazy"></a>
+              </figure>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Keeping the work visible</h2>
+          <p>Work on this scale depended on the whole team.</p>
+          <p>We used a few regular meetings to make our process and progress visible to everyone.</p>
+          <ul>
+            <li>Weekly check-ins</li>
+            <li>Regular demos</li>
+            <li>Design reviews</li>
+            <li>Retrospectives</li>
+          </ul>
+          <p>I’m grateful to the team. Their feedback made it possible to turn a project of this size into something people could use in their everyday work.</p>
+          <p>My colleagues asked questions, gave feedback on the new workflows and taught each other what they learned. That’s how knowledge of the system spread across a team of more than 200.</p>
+        </section>
+        <section>
+          <h2>Metrics and team feedback</h2>
+          <p>As design system lead, I defined the metrics we used to track this work. The team and I put them into practice, and they’re the basis for the results reported here.</p>
+          <figure class="case-portrait" style="--preview-width-limit: calc(var(--preview-height-limit) * 1286 / 2000)">
+            <a href="../../../projects/design-system/images/Metrics.png"><img src="../../../projects/design-system/previews/Metrics.webp" width="1286" height="2000" alt="Framework for measuring the impact of the MyOffice design system" decoding="async" loading="lazy"></a>
+          </figure>
+          <p>We also ran qualitative research with the people who used the system. Designers, developers and testers told us how it worked for them.</p>
+          <figure class="case-portrait" style="--preview-width-limit: calc(var(--preview-height-limit) * 1272 / 2000)">
+            <a href="../../../projects/design-system/images/UX_feedback.png"><img src="../../../projects/design-system/previews/UX_feedback.webp" width="1272" height="2000" alt="Selected responses to the survey of designers" decoding="async" loading="lazy"></a>
+            <figcaption>Selected results from our survey of designers</figcaption>
+          </figure>
+        </section>
+        <section>
+          <h2>Overall results</h2>
+          <p>Together, we built a system from scratch that supports the team, the product and the business. It helps people work faster and lets the product grow while maintaining quality.</p>
+          <table class="case-metrics case-final-metrics">
+            <tbody>
+              <tr>
+                <th scope="row"><mark>30%</mark></th>
+                <td>faster time to market</td>
+              </tr>
+              <tr>
+                <th scope="row">60%</th>
+                <td>of designers’ and developers’ needs<br>covered by the system</td>
+              </tr>
+              <tr>
+                <th scope="row">80%</th>
+                <td>improvement in visual quality and consistency<br>— Accessibility<br>— Scalability<br>— Adaptability</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </article>
+    </main>
+
+    <footer class="page footer">
+      <p>Anastasiia Lisovskaia<span class="footer-name-separator">, </span><br class="footer-name-break">Senior Product Designer<br>10+&nbsp;years in B2C, B2B, B2G and SaaS</p>
+      <div class="contact-links">
+        <a class="contact-button" href="https://www.linkedin.com/in/anastasiia-lisovskaia-design/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="contact-button" href="https://t.me/stasy721" target="_blank" rel="noopener noreferrer">Telegram</a><a class="contact-button" href="mailto:anastasiia.lisovskaia.design@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+      </div>
+    </footer>
+  </body>
+</html>

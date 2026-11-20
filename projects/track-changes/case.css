@@ -4,13 +4,6 @@
   --insight-gap: clamp(44px, 5vw, 76px);
 }
 
-.case-page main {
-  width: min(calc(100% - 64px), 58rem);
-  margin-inline: auto;
-}
-
-.case-page article { max-width: var(--title-width); }
-
 .case-page nav { font-size: 1rem; }
 .case-page nav .contact-links .contact-button {
   width: auto;
@@ -19,8 +12,6 @@
 
 /* Use the site's base type size until .page applies its mobile typography. */
 :where(.case-page .footer) { font-size: 1rem; }
-
-.case-page .case-summary { max-width: 38rem; }
 
 .case-page section {
   margin-top: calc(var(--space) * 8);

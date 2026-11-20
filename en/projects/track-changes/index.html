@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="I designed the first version of table change tracking for MyOffice Text, a desktop word processor.">
+    <meta name="theme-color" content="#222222">
+    <title>Track Changes — Anastasiia Lisovskaia</title>
+    <link rel="icon" href="../../../favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="../../../favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="preload" href="../../../assets/noto-sans.ttf" as="font" type="font/ttf" crossorigin="">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="../../../projects/case-common.css">
+    <link rel="stylesheet" href="../../../projects/track-changes/case.css">
+  </head>
+  <body class="case-page">
+    <main>
+      <nav class="case-navigation" aria-label="Case study navigation">
+        <div class="contact-links language-switch" role="group" aria-label="Language">
+          <a class="contact-button" href="../../../projects/track-changes/index.html" lang="ru" hreflang="ru" aria-label="Русский">RU</a>
+          <span lang="en" aria-current="page">EN</span>
+        </div>
+        <div class="contact-links">
+          <a class="contact-button" href="../../index.html#projects">← Back to case studies</a>
+        </div>
+      </nav>
+      <article>
+        <header>
+          <h1>Tracking changes in tables. How we filled gaps left by competitors and shipped the MVP on time</h1>
+          <p class="case-summary">I designed the first version of table change tracking for MyOffice Text, a desktop word processor.</p>
+          <p class="case-platforms">0→1 · Desktop editor · B2B · B2C · B2G · Product Design · UX</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/cover_vector.png"><img src="../../../projects/track-changes/previews/cover_vector.webp" width="1600" height="900" alt="MyOffice Text showing tracked changes in a table" decoding="async"></a>
+            <figcaption>Reviewing changes to a table in MyOffice Text</figcaption>
+          </figure>
+        </header>
+        <section>
+          <h2>MyOffice desktop document editors</h2>
+          <p>MyOffice develops office software, including cloud storage, desktop document editors and email systems.</p>
+          <ul>
+            <li>12+&nbsp;years on the market</li>
+            <li>12,500+ customers across industries use MyOffice software</li>
+            <li>4,500+ partners across all regions of Russia</li>
+            <li>1,000+ employees</li>
+          </ul>
+          <p>I designed change tracking for tables in the desktop word processor. My work ranged from defining the problem and testing user expectations to designing interface states and writing the specification.</p>
+          <figure class="case-change-preview">
+            <a href="../../../projects/track-changes/images/4.8.3.png"><img src="../../../projects/track-changes/previews/4.8.3.webp" width="1600" height="855" alt="A proposed table insertion and row deletion in review mode" decoding="async" loading="lazy"></a>
+            <figcaption>Preview of suggested changes to a table</figcaption>
+          </figure>
+        </section>
+        <section>
+          <h2>Who uses tables and where reviews break down</h2>
+          <h3>Who does what</h3>
+          <p><strong>The document author</strong> reviews each change and decides whether to accept or reject it.</p>
+          <p><strong>Co-authors, approvers and reviewers</strong> suggest changes.</p>
+          <h3>How people review tables together</h3>
+          <p>Co-authors and approvers suggest edits. The document author accepts or rejects them. People can work on a document offline, online or together in real time.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/2.png"><img src="../../../projects/track-changes/previews/2.webp" width="1600" height="1123" alt="A table with edits from several co-authors and messages in the document margin" decoding="async" loading="lazy"></a>
+            <figcaption>One co-author suggests deleting rows. Another suggests inserting a row between them.</figcaption>
+          </figure>
+          <h3>Where the workflow broke down</h3>
+          <p>The editor tracked text edits, but it missed some changes to table structure and formatting.</p>
+          <p>It automatically accepted some changes from other editors and lost others.</p>
+          <p>People had to compare document versions by hand.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image.png"><img src="../../../projects/track-changes/previews/image.webp" width="1600" height="1127" alt="A Microsoft forum post about table rows shifting during review in Word" decoding="async" loading="lazy"></a>
+            <figcaption>A user describes the problem on a Microsoft forum</figcaption>
+          </figure>
+        </section>
+        <div class="case-section-pair">
+          <section>
+            <h2>Design goal</h2>
+            <p>Let people suggest and review changes to tables and pick up a review started in another editor without losing anyone’s edits.</p>
+          </section>
+          <section>
+            <h2>My role and the team</h2>
+            <p>I analyzed workflows and competing editors, ran hallway studies, designed the interface and helped define the requirements.</p>
+            <p>I worked with the business and systems analysts, product manager, developers and testers to agree on how the feature should behave, what was technically feasible and what each release would include.</p>
+          </section>
+        </div>
+        <section>
+          <h2>Design process</h2>
+          <h3>How six editors handled table changes</h3>
+          <figure>
+            <a href="../../../projects/track-changes/images/Frame_1.png"><img src="../../../projects/track-changes/previews/Frame_1.webp" width="1600" height="1035" alt="Comparison of how six document editors handle tracked changes" decoding="async" loading="lazy"></a>
+            <figcaption>The outline on the left shows the scope of the competitive analysis.</figcaption>
+          </figure>
+          <p>I compared Microsoft&nbsp;Word, Word for the web, WPS&nbsp;Office, LibreOffice, Google&nbsp;Docs and R7&nbsp;Office. I tested operations on whole tables, rows and columns, as well as formatting and edits to cell contents.</p>
+          <blockquote class="case-aside"><strong>Finding.</strong> Each editor handled table changes differently. Some actions went untracked, others triggered a warning, and a change to the table structure could appear separately from a change to its contents.<br><br>We needed to define rules that fit the interaction patterns people already knew from MyOffice.</blockquote>
+          <h3>Defining the rules for tracked changes</h3>
+          <p>I mapped table operations and properties, selection ranges and combinations of edits by multiple co-authors. I built two matrices. One covered what happens as people make changes in sequence. The other covered what happens as they accept or reject related changes.</p>
+          <p>For each new edit, I considered who made it, what kind of edit it was and where it fell relative to an existing change. It could sit inside that change, next to it or partly overlap it. Those conditions determined whether the edits would merge, stay separate or split into several changes.</p>
+          <div class="case-documents case-drafts">
+            <figure>
+              <a href="../../../projects/track-changes/images/image_11.png"><img src="../../../projects/track-changes/previews/image_11.webp" width="1600" height="900" alt="Working notes on table properties and available operations" decoding="async" loading="lazy"></a>
+              <figcaption>Before designing the interactions, I listed all the table, cell and text properties a user could change.</figcaption>
+            </figure>
+            <figure>
+              <a href="../../../projects/track-changes/images/image_12.png"><img src="../../../projects/track-changes/previews/image_12.webp" width="1600" height="900" alt="Selection options for tables, rows, columns and cells" decoding="async" loading="lazy"></a>
+              <figcaption>Next I mapped the cell ranges people were likely to select and how the editor would interpret each selection as a cell, a column, a row or the whole table.</figcaption>
+            </figure>
+            <figure>
+              <a href="../../../projects/track-changes/images/image_13.png"><img src="../../../projects/track-changes/previews/image_13.webp" width="1600" height="900" alt="Rules for overlapping edits from different users" decoding="async" loading="lazy"></a>
+              <figcaption>Once I had rules for table operations and for recording suggestions, I worked out how to handle overlapping changes from multiple co-authors.</figcaption>
+            </figure>
+          </div>
+          <p>Across several drafts, I explored the available properties, which parts of a table people could edit alone or together, and when edits from different people would overlap or merge.</p>
+          <blockquote class="case-aside"><strong>Finding.</strong> Accepting a table deletion also affects the edits inside it. We had to define what would happen to those edits whenever someone acted on the change to the table as a whole.</blockquote>
+          <p>Our requirements distinguished between the changes the editor records in the document and the changes it shows to the person reviewing it.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_14.png"><img src="../../../projects/track-changes/previews/image_14.webp" width="1600" height="900" alt="Matrix of edits made in sequence" decoding="async" loading="lazy"></a>
+            <figcaption>The first matrix covers all the ways successive edits can intersect. It accounts for whether the same person or different people made the edits and where each new change falls relative to earlier ones.</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_15.png"><img src="../../../projects/track-changes/previews/image_15.webp" width="1600" height="900" alt="Matrix for accepting or rejecting changes in sequence" decoding="async" loading="lazy"></a>
+            <figcaption>The second matrix covers every combination of change types when someone accepts or rejects related edits one after another.</figcaption>
+          </figure>
+          <h3>Testing user expectations</h3>
+          <p>I ran a hallway study with 10&nbsp;people familiar with document review. I wanted to know what they expected to see when they copied part of a proposed insertion or deletion into a clean document.</p>
+          <h4>The task</h4>
+          <p>You have two documents. You’re copying from one and pasting into the other. Each passage contains a change suggested by someone else. What do you think will appear when you paste it into the new document? What would you expect to see?</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_17.png"><img src="../../../projects/track-changes/previews/image_17.webp" width="1600" height="900" alt="Study task showing the source document and the document where participants would paste the selection" decoding="async" loading="lazy"></a>
+            <figcaption>The study setup</figcaption>
+          </figure>
+          <p>Participants looked at both documents and explained what they thought would appear when they pasted the selection. Possibilities included the content alone, the content with its tracked changes, or the result of accepting the change.</p>
+          <h4>In participants’ words</h4>
+          <blockquote>“I’d expect everything I can see to come across, both the content and the suggested edits.”</blockquote>
+          <blockquote>“I don’t see why I’d copy just part of someone else’s edit. I’d want the whole change. What would I do with just a piece of it?”</blockquote>
+          <blockquote>“Whatever I selected.”</blockquote>
+          <blockquote>“With the comment.”</blockquote>
+          <blockquote>“Just regular text, without the edits.”</blockquote>
+          <blockquote>“I’d expect a choice. Paste just the text or include the changes.”</blockquote>
+          <blockquote>“Whatever I copied is what gets pasted.”</blockquote>
+          <h4>What we learned</h4>
+          <blockquote class="case-aside">When participants copied text marked for deletion, everyone expected something to appear when they pasted it. Accepting the deletion would have left them with nothing to paste.<br><br>Some expected to paste the text they could see. Others expected the suggested changes to come with it.</blockquote>
+          <div class="case-pair">
+            <div>
+              <blockquote class="case-aside"><p>People had no settled expectations about how changes to a table’s structure should work.</p><p>They tried an action and judged the result afterward.</p></blockquote>
+            </div>
+            <div>
+              <blockquote class="case-aside">When copying part of a document into another, people expected the visible content to carry over.<br><br>Whether to carry over the suggested changes as well may depend on the task.</blockquote>
+            </div>
+          </div>
+          <h3>Designing the review interface</h3>
+          <p>I defined requirements for changes to table and row properties and formatting, operations on whole tables, rows and columns, edits to cell contents, and grouped changes.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_18.png"><img src="../../../projects/track-changes/previews/image_18.webp" width="1600" height="900" alt="Requirements for tracked changes alongside the related development tasks" decoding="async" loading="lazy"></a>
+            <figcaption>The final MVP specification covered property changes, operations on tables, rows, columns and cells, and grouped changes. It also defined the order of changes in the list of changes, how to accept or reject them, and how to display changes across different parts of a document.</figcaption>
+          </figure>
+          <p>I designed the markers for insertions, deletions and formatting changes, the hover and selected states, and the messages showing who made each change and when.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_20.png"><img src="../../../projects/track-changes/previews/image_20.webp" width="1600" height="900" alt="Markers for insertions, deletions and formatting changes to tables and rows" decoding="async" loading="lazy"></a>
+            <figcaption>Design detail showing how insertions, deletions and formatting changes appear individually and together</figcaption>
+          </figure>
+          <p>I specified the order in the list of changes. Changes to the table appear before changes to its rows, and row changes appear before edits to the content within them.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_19.png"><img src="../../../projects/track-changes/previews/image_19.webp" width="1600" height="900" alt="Specification excerpt showing how to display and order tracked changes" decoding="async" loading="lazy"></a>
+            <figcaption>An excerpt from the rules for formatting changes and row edits</figcaption>
+          </figure>
+          <p>When a change spans multiple pages, its message appears once, on the page where the change begins.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_21.png"><img src="../../../projects/track-changes/previews/image_21.webp" width="1600" height="900" alt="A message beside the start of a table change that continues onto the next page" decoding="async" loading="lazy"></a>
+            <figcaption>A single change spanning two pages</figcaption>
+          </figure>
+          <p>I designed a warning for actions the editor couldn’t track and a confirmation prompt for actions that would discard related edits.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_22.png"><img src="../../../projects/track-changes/previews/image_22.webp" width="1600" height="900" alt="Warning dialog for an action the editor cannot record as a tracked change" decoding="async" loading="lazy"></a>
+            <figcaption>When the editor can’t track a suggested change, the message explains that the edit will take effect in the table immediately and won’t appear for review.</figcaption>
+          </figure>
+          <h3>Release scope and next steps</h3>
+          <p>The first release supported four structural changes. Users could insert or delete a table and insert or delete a row. We then worked on grouping changes, tracking table property changes and explaining limitations in the interface.</p>
+          <p>For later releases, we identified nested tables, merging and splitting cells, clearer messages about edits to objects, and co-author colors that would be easier to tell apart.</p>
+          <figure>
+            <a href="../../../projects/track-changes/images/image_23.png"><img src="../../../projects/track-changes/previews/image_23.webp" width="1600" height="900" alt="Phased release plan for reviewing changes to tables" decoding="async" loading="lazy"></a>
+            <figcaption>Tasks for later releases of table change tracking</figcaption>
+          </figure>
+          <blockquote>Show formatting changes to a whole table or part of it.</blockquote>
+          <blockquote>Remove the stray brackets “[]” so the label reads simply “Added” or “Deleted.”</blockquote>
+          <blockquote>Use fewer colors for co-authors’ changes so the colors are easier to tell apart.</blockquote>
+          <blockquote>Remember the user’s choice in the dialog for each group of actions.</blockquote>
+          <blockquote>Show tracked changes when users split or merge cells.</blockquote>
+          <blockquote>Clarify the wording of changes involving objects inside tables.</blockquote>
+          <h3>What I’d do differently</h3>
+          <ul>
+            <li>I’d test with a larger group to see whether people understand the change markers and what will happen when they accept or reject an edit.</li>
+            <li>I’d bring developers in earlier to look at complex combinations of edits, assess technical constraints and decide which scenarios to prioritize.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Outcome</h2>
+          <p>I took the feature from the initial problem analysis through to release in version&nbsp;3.4.<br>People can now track changes to tables in MyOffice Text.</p>
+          <p>I designed the interface states and worked with the analysts on the rules for displaying, accepting and rejecting changes.</p>
+          <div class="case-documents case-results">
+            <figure>
+              <a href="../../../projects/track-changes/images/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.png"><img src="../../../projects/track-changes/previews/5b3b6ae3-dbe6-45de-8af6-1a9fff4b513b.webp" width="852" height="804" alt="Designs for tracking table property changes and operations on tables, rows and columns" decoding="async" loading="lazy"></a>
+              <figcaption>Table property changes and operations on tables, rows and columns</figcaption>
+            </figure>
+            <figure>
+              <a href="../../../projects/track-changes/images/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.png"><img src="../../../projects/track-changes/previews/8c88d90d-5955-43fe-8d5d-3b93aa0f26f9.webp" width="852" height="803" alt="Designs for grouped changes, notifications and a change spanning multiple pages" decoding="async" loading="lazy"></a>
+              <figcaption>Grouped changes, notifications and a change spanning multiple pages</figcaption>
+            </figure>
+          </div>
+          <figure>
+            <a href="../../../projects/track-changes/images/image-1.png"><img src="../../../projects/track-changes/previews/image-1.webp" width="1600" height="365" alt="Sequence of interface states for a table with tracked changes" decoding="async" loading="lazy"></a>
+            <figcaption>How highlighting works in the default, hover and editing states and when other changes are present</figcaption>
+          </figure>
+          <figure>
+            <a href="../../../projects/track-changes/images/image-2.png"><img src="../../../projects/track-changes/previews/image-2.webp" width="1600" height="774" alt="Display options for changes spanning two document pages" decoding="async" loading="lazy"></a>
+            <figcaption>How a whole-table change appears alongside a change that spans two pages</figcaption>
+          </figure>
+        </section>
+      </article>
+    </main>
+
+    <footer class="page footer">
+      <p>Anastasiia Lisovskaia<span class="footer-name-separator">, </span><br class="footer-name-break">Senior Product Designer<br>10+&nbsp;years in B2C, B2B, B2G and SaaS</p>
+      <div class="contact-links">
+        <a class="contact-button" href="https://www.linkedin.com/in/anastasiia-lisovskaia-design/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="contact-button" href="https://t.me/stasy721" target="_blank" rel="noopener noreferrer">Telegram</a><a class="contact-button" href="mailto:anastasiia.lisovskaia.design@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+      </div>
+    </footer>
+  </body>
+</html>

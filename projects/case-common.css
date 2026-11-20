@@ -1,5 +1,5 @@
 .case-page {
-  --title-width: 54rem;
+  --content-width: 54rem;
   --display-size: clamp(1.5rem, .9rem + 3.8vw, 3.6rem);
   --secondary: #c2c2c2;
   font-size: clamp(.85rem, .77rem + .4vw, 1rem);
@@ -7,7 +7,17 @@
   overflow-wrap: break-word;
 }
 
-.case-page main { padding-bottom: clamp(72px, 9vw, 144px); }
+.case-page main {
+  width: calc(100% - 64px);
+  margin-inline: auto;
+  padding-bottom: clamp(72px, 9vw, 144px);
+}
+
+.case-page article {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
 .case-page nav { padding-block: 24px; font-size: .85rem; }
 .case-page a {
   color: inherit;
@@ -24,7 +34,6 @@
   margin: 0;
   font-size: var(--display-size);
   line-height: 1.16;
-  text-wrap: balance;
 }
 .case-page .case-summary {
   margin-top: 16px;
@@ -71,7 +80,7 @@
 
 /* These responsive values also apply when a case defines its own base widths or margins. */
 @media (max-width: 767px) {
-  body.case-page main { width: calc(100% - 40px); }
+  .case-page main { width: calc(100% - 40px); }
   .case-page nav { padding-block: 16px; }
   body.case-page h2 { margin-bottom: 16px; }
 }
